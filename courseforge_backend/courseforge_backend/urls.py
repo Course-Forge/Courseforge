@@ -17,14 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from courses.views import CourseViewSet, ProjectViewSet
+from courses.views import CourseViewSet
 
-router = DefaultRouter()
-router.register(r'courses', CourseViewSet)
-router.register(r'projects', ProjectViewSet)
+# router = DefaultRouter()
+# router.register(r'courses', CourseViewSet.as_view)
 
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('api/', include(router.urls)),
+# ]
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('api/courseforge', CourseViewSet.as_view(), name='courseforge-api')
 ]
 
