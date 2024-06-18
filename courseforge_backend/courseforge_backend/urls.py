@@ -28,6 +28,6 @@ from courses.views import CourseViewSet
 # ]
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/courseforge', CourseViewSet.as_view(), name='courseforge-api')
+    path('api/courseforge/', CourseViewSet.as_view(), name='courseforge-api')
 ]
 
