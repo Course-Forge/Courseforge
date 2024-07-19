@@ -4,20 +4,28 @@ from rest_framework import status
 from .models import Course
 from .serializers import CourseSerializer
 import requests
+import os
+from dotenv import load_dotenv
+from django.conf import settings
+
+
 class CourseViewSet(APIView):
     def post(self, request, *args, **kwargs):
         user_message = request.data.get('message')
         if not user_message:
             return Response({"error": "No message provided"}, status=status.HTTP_400_BAD_REQUEST)
-
         # Save user message to the database
         user_msg = Course.objects.create(sender='user', text=user_message)
-
+        load_dotenv()
+        
         # Call Gemini API (replace with actual Gemini API endpoint and key)
         gemini_api_url = "https://api.gemini.com/v1/chat"
-        gemini_api_key = ".env.GEMINI_API_KEY"
+        # if settings.GEM:
+        #     print("GEMINI API KEY FOUND!")
+        # else:
+        #     print("NO GEMINI API KEY!")
         headers = {
-            "Authorization": f"Bearer {gemini_api_key}",
+            'Authorization': 'Bearer {settings.GEMINI_API_KEY}',
             "Content-Type": "application/json",
         }
         data = {"message": user_message}

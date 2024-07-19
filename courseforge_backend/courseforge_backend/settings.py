@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+#Retrieve the API key from the environemnt variables
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 # GEMINI_API_KEY = config('AIzaSyDmrifdG2UASWMl6kESszZp_5L1e13l0Ag')
 GEMINI_API_KEY = 'AIzaSyDmrifdG2UASWMl6kESszZp_5L1e13l0Ag'
@@ -53,7 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middlewar.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'courseforge_backend.urls'
@@ -106,26 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-        '': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-    },
-}
+
 
 
 # Internationalization
