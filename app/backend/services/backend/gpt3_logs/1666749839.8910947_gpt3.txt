@@ -1,0 +1,14 @@
+PROMPT:
+
+I missed a meeting for work, and the following text is an audio transcription of that meeting. Write a quick summary for the transcription, using college-level PhD language.
+
+Russian forces retreated from Lehman. A strategic threat for its operations in the east. Russian Defense Ministry said Saturday. Just a day after Moscow's annexation of the region that's been declared illegal by the west in connection with the creation of a threat of encirclement. Allied troops were withdrawn from the settlement of Krasny Leman to more advantages lines. Ministry said on telegram using the Russian name for the town of Leman. Russian state media Russia 24 reported that the reason for Russia's withdrawal was because the enemy used both Westernmade artillery and intelligence from North Atlantic alliance countries. Isn't that interesting? Because it looks like the Russians are retreating in late. The retreat marks Ukraine's most significant gain since it's successful counter offensive in the northeastern Car key margin last month.
+
+AUDIO TRANSCRIPTION:
+
+
+==========
+
+RESPONSE:
+
+The Russian Defense Ministry announced on Saturday that Russian forces had retreated from Lehman, a strategic settlement in the east. This retreat comes just a day after Moscow's annexation of the region, which has been declared illegal by the west. The ministry said that allied troops were withdrawn from the settlement of Krasny Leman to more advantageous lines. It is interesting to note that the retreat marks Ukraine's most significant gain since its successful counter offensive in the northeastern Car key margin last month.
