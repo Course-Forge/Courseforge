@@ -3,78 +3,64 @@ import axios from 'axios';
 import './Chat.css';
 
 const Chat = () => {
-  const [messages, setMessages] = useState([]);
-  const [inputValue, setInputValue] = useState('');
+  const [conversation, setConversation] = useState([]);
+  const [userInput, setUserInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const hasInitialized = useRef(false);
 
   useEffect(() => {
     if (!hasInitialized.current) {
-      addMessage('Hello! How can I assist you today?', 'gemini');
+      addMessage('Hello! How can I assist you today?', 'gpt');
       hasInitialized.current = true;
     }
   }, []);
 
-  const addMessage = (text, author) => {
-    const newMessage = { text, author };
-    setMessages((prevMessages) => [...prevMessages, newMessage]);
+  const addMessage = (text, sender) => {
+    setConversation((prevConversation) => [...prevConversation, { text, sender }]);
+  };
+
+  const sendMessage = async () => {
+    if (userInput.trim()) {
+      const newConversation = [...conversation, { text: userInput, sender: 'user' }];
+      setConversation(newConversation);
+      setUserInput('');
+      setIsTyping(true);
+
+      try {
+        const response = await axios.post('http://127.0.0.1:8000/api/chatbot/', { user_message: userInput });
+        addMessage(response.data.response, 'gpt');
+      } catch (error) {
+        if (error.response) {
+          const errorMessage = error.response.status === 401
+            ? 'Unauthorized: Check your API credentials.'
+            : `Error: ${error.response.data.error}`;
+          addMessage(errorMessage, 'gpt');
+          console.error('Error Response:', error.response.data);
+        } else {
+          addMessage('Error communicating with the server.', 'gpt');
+          console.error('Error:', error.user_message);
+        }
+      } finally {
+        setIsTyping(false);
+      }
+    }
   };
 
   const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+    setUserInput(event.target.value);
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter' && inputValue.trim() !== '') {
-      const userMessage = inputValue.trim();
-      addMessage(userMessage, 'User');
-      setInputValue('');
-      setIsTyping(true);
-
-  //     // Send message to backend
-  //     axios.post('/api/courseforge/', { message: userMessage })
-  //       .then((response) => {
-  //         setIsTyping(false);
-  //         const { gemini_message } = response.data;
-  //         addMessage(gemini_message.text, 'gemini');
-  //       })
-  //       .catch((error) => {
-  //         setIsTyping(false);
-  //         addMessage('Error communicating with the server.', 'gemini');
-  //         console.error(error);
-  //       });
-  axios.post('http://127.0.0.1:8000/api/courseforge/', { message: userMessage })
-  .then((response) => {
-    setIsTyping(false);
-    const { gemini_message } = response.data;
-    addMessage(gemini_message, 'gemini');
-  })
-  .catch((error) => {
-    setIsTyping(false);
-    if (error.response) {
-      // Handle 401 Unauthorized separately
-      if (error.response.status === 401) {
-        addMessage('Unauthorized: Check your API credentials.', 'gemini');
-      } else {
-        addMessage(`Error: ${error.response.data.error}`, 'gemini');
-      }
-      console.error('Error Response:', error.response.data);
-    } else {
-      addMessage('Error communicating with the server.', 'gemini');
-      console.error('Error:', error.message);
-    }
-  });
-
-
+    if (event.key === 'Enter') {
+      sendMessage();
     }
   };
-
 
   return (
     <div className="chat-container">
       <div className="chat-messages">
-        {messages.map((message, index) => (
-          <div key={index} className={`chat-message ${message.author === 'gemini' ? 'chat-right' : 'chat-left'}`}>
+        {conversation.map((message, index) => (
+          <div key={index} className={`chat-message ${message.sender === 'gpt' ? 'chat-right' : 'chat-left'}`}>
             {message.text}
           </div>
         ))}
@@ -89,76 +75,14 @@ const Chat = () => {
       <input
         type="text"
         placeholder="Type your message here..."
-        value={inputValue}
+        value={userInput}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
       />
+      <button onClick={sendMessage}>Send</button>
       <p className="disclaimer">CourseForge can make mistakes. Check important info.</p>
     </div>
   );
 };
 
 export default Chat;
-// // Chat.js
-// import React, { useState } from 'react';
-// import axios from 'axios';
-
-// const Chat = () => {
-//   const [messages, setMessages] = useState([]);
-//   const [userMessage, setUserMessage] = useState('');
-//   const [isTyping, setIsTyping] = useState(false);
-
-//   const handleKeyPress = async (e) => {
-//     if (e.key === 'Enter') {
-//       setIsTyping(true);
-//       addMessage(userMessage, 'user');
-
-//       try {
-//         const response = await axios.post('http://localhost:8000/api/courseforge/', { message: userMessage });
-//         const { gemini_message } = response.data;
-//         addMessage(gemini_message, 'gemini');
-//       } catch (error) {
-//         console.error('Error Response:', error.response.data);
-//         console.error('Error Status:', error.response.status);
-//         console.error('Error Headers:', error.response.headers);
-
-//         if (error.response) {
-//           if (error.response.status === 401) {
-//             addMessage('Unauthorized: Check your API credentials.', 'gemini');
-//           } else if (error.response.status === 500) {
-//             addMessage('Internal Server Error: Check your server logs.', 'gemini');
-//           } else {
-//             addMessage(`Error: ${error.response.data.error}`, 'gemini');
-//           }
-//         } else {
-//           addMessage('Error communicating with the server.', 'gemini');
-//         }
-//       } finally {
-//         setIsTyping(false);
-//       }
-//     }
-//   };
-
-//   const addMessage = (message, sender) => {
-//     setMessages((prevMessages) => [...prevMessages, { message, sender }]);
-//     setUserMessage('');
-//   };
-
-//   return (
-//     <div>
-//       <div className="chat-container">
-//         {messages.map((msg, index) => (
-//           <div key={index} className={`message ${msg.sender}`}>{msg.message}</div>
-//         ))}
-//       </div>
-//       <input
-//         type="text"
-//         value={userMessage}
-//         onChange={(e) => setUserMessage(e.target.value)}
-//         onKeyPress={handleKeyPress}
-//       />
-//     </div>
-//   );
-// };
-
-// export default Chat;

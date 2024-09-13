@@ -21,6 +21,7 @@ import os
 # GEMINI_API_KEY = 'AIzaSyDmrifdG2UASWMl6kESszZp_5L1e13l0Ag'
 # GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 GEMINI_API_KEY = 'AIzaSyCCiyDDC0OQY8yNR2dLJSlOJJeIkDA4h6w'
+OPENAI_API_KEY = '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'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -34,7 +35,7 @@ SECRET_KEY = 'django-insecure-3m*2h^cs&@ehdb695(afqyfb9%3=lk%w*4-@bwo9wh#=*t2up+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

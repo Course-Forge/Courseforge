@@ -17,8 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from courses.views import course_chat;
+from courses.views import chatbot_response;
 
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    # path('api/courseforge/', course_chat, name='course_chat')
+    path('api/chatbot/', chatbot_response, name='chatbot_response')
+]
 # router = DefaultRouter()
 # router.register(r'courses', CourseViewSet.as_view)
 
@@ -26,8 +31,3 @@ from courses.views import course_chat;
 #     path('admin/', admin.site.urls),
 #     path('api/', include(router.urls)),
 # ]
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/courseforge/', course_chat, name='course_chat')
-]
-
