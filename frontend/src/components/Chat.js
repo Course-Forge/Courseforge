@@ -28,6 +28,8 @@ const Chat = () => {
 
       try {
         const response = await axios.post('http://127.0.0.1:8000/api/chatbot/', { user_message: userInput });
+        // const formattedResponse = marked(response.data.response);  // Convert Markdown to HTML
+        // addMessage(formattedResponse, 'gpt');
         addMessage(response.data.response, 'gpt');
       } catch (error) {
         if (error.response) {

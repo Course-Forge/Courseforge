@@ -355,6 +355,7 @@ def chatbot_response(request):
         try:
             # Configure the generative AI client
             genai.configure(api_key=settings.GEMINI_API_KEY)
+            print(settings.GEMINI_API_KEY)
             model = genai.GenerativeModel('gemini-1.5-flash')
             
             # Parse JSON request body

@@ -18,10 +18,9 @@ import os
 #Retrieve the API key from the environemnt variables
 # GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
-# GEMINI_API_KEY = 'AIzaSyDmrifdG2UASWMl6kESszZp_5L1e13l0Ag'
+GEMINI_API_KEY = os.environ['gemini_api_key']
 # GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
-GEMINI_API_KEY = 'AIzaSyCCiyDDC0OQY8yNR2dLJSlOJJeIkDA4h6w'
-OPENAI_API_KEY = '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'
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
