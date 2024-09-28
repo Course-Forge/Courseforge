@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { getDatabase, ref, set } from 'firebase/database';  // Firebase setup
 import './Chat.css';
 
 const Chat = () => {
   const [conversation, setConversation] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [courseSuggestion, setCourseSuggestion] = useState(null);  // New state for course suggestion
   const hasInitialized = useRef(false);
 
   useEffect(() => {
     if (!hasInitialized.current) {
-      addMessage('Hello! How can I assist you today?', 'gpt');
+      addMessage('Hello! What course would you like to learn?', 'gpt');
       hasInitialized.current = true;
     }
   }, []);
@@ -28,24 +30,39 @@ const Chat = () => {
 
       try {
         const response = await axios.post('http://127.0.0.1:8000/api/chatbot/', { user_message: userInput });
-        // const formattedResponse = marked(response.data.response);  // Convert Markdown to HTML
-        // addMessage(formattedResponse, 'gpt');
-        addMessage(response.data.response, 'gpt');
+        const botResponse = response.data.response;
+        addMessage(botResponse, 'gpt');
+
+        // Set course suggestion for confirmation
+        setCourseSuggestion(botResponse);
       } catch (error) {
-        if (error.response) {
-          const errorMessage = error.response.status === 401
-            ? 'Unauthorized: Check your API credentials.'
-            : `Error: ${error.response.data.error}`;
-          addMessage(errorMessage, 'gpt');
-          console.error('Error Response:', error.response.data);
-        } else {
-          addMessage('Error communicating with the server.', 'gpt');
-          console.error('Error:', error.user_message);
-        }
+        addMessage('Error communicating with the server.', 'gpt');
+        console.error('Error:', error.message);
       } finally {
         setIsTyping(false);
       }
     }
+  };
+
+  const handleAcceptCourse = () => {
+    if (courseSuggestion) {
+      // Save course to Firebase
+      const db = getDatabase();
+      const courseRef = ref(db, `courses/${Date.now()}`);
+      set(courseRef, {
+        courseName: courseSuggestion,
+        userMessage: userInput,
+      });
+
+      // Notify user and reset suggestion
+      addMessage('Course accepted and saved! You can access it from "Your Courses" page.', 'gpt');
+      setCourseSuggestion(null);
+    }
+  };
+
+  const handleDeclineCourse = () => {
+    addMessage('Course declined. Please enter a new course.', 'gpt');
+    setCourseSuggestion(null);
   };
 
   const handleInputChange = (event) => {
@@ -74,9 +91,16 @@ const Chat = () => {
           </div>
         )}
       </div>
+      {courseSuggestion && (
+        <div className="course-suggestion">
+          <p>Do you want to accept this course suggestion?</p>
+          <button onClick={handleAcceptCourse}>Accept</button>
+          <button onClick={handleDeclineCourse}>Decline</button>
+        </div>
+      )}
       <input
         type="text"
-        placeholder="Type your message here..."
+        placeholder="Type your course here..."
         value={userInput}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
