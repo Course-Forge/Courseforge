@@ -1,14 +1,22 @@
 /* src/App.css */
+
 .app {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
-  height: 100vh;
+  height: 100vh; /* Ensure it takes up the full viewport height */
   background-color: rgb(255, 255, 255, 0);
+  position: relative;
 }
 
 .content {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  padding-left: 60px; /* Space for collapsed sidebar */
+  transition: padding-left 0.3s ease; /* Smooth transition for sidebar expansion */
   color: #000000;
+}
+
+.content.open {
+  padding-left: 250px; /* Space for expanded sidebar */
 }

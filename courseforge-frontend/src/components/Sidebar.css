@@ -1,15 +1,16 @@
 /* src/components/Sidebar.css */
+
 .sidebar-container {
-  position: fixed;
+  position: fixed; /* Make the sidebar overlay */
   top: 0;
   left: 0;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #333;
+  
   transition: width 0.3s ease;
-  z-index: 1000;
+  z-index: 10; /* Ensure it's above other elements */
   width: 60px; /* Default width when collapsed */
 }
 
@@ -36,23 +37,23 @@
   border: none;
   margin: 10px;
   position: absolute;
-  top: 50px; /* Move closer to the bottom */
-  left: 4.7px;   /* Move closer to the left */
+  top: 50px;
+  left: 4.7px;
   padding-top: 4px;
-  padding-bottom:3.5px;
+  padding-bottom: 3.5px;
   border-radius: 50%;
 }
 
 .sidebar {
+  position: fixed; /* Overlay the sidebar */
   height: 100%;
   width: 250px; /* Full width when open */
   background-color: #333;
   color: white;
-  position: absolute;
+  
   top: 0;
   left: -250px;
   transition: left 0.3s ease;
-  z-index: 1000;
 }
 
 .sidebar.open {
@@ -66,14 +67,13 @@
   background: none;
   border: none;
   color: white;
-  position: absolute;
+  
   top: 10px;
   right: 10px;
 }
 
-
 .menu {
-  margin-top: 100px; /* Adjust based on the new button */
+  margin-top: 100px;
 }
 
 .menu-item {
@@ -90,7 +90,6 @@
 
 .profile {
   color: black;
-  position: absolute;
   bottom: 20px;
   margin-left: 10%;
   width: 80%;
@@ -112,6 +111,7 @@
   width: 40px;
   height: 40px;
 }
+
 a {
   text-decoration: none;
 }
