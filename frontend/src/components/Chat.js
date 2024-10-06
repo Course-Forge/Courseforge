@@ -32,15 +32,29 @@ const Chat = () => {
     // Format italic text (e.g., *italic* -> <em>italic</em>)
     text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
   
-    // Add spacing between sections by looking for sections after colons and bullets
-    text = text.replace(/:\s*/g, ':</p><p>')  // Adds space after colons
-               .replace(/•\s*/g, '<br />• ');  // Adds a break between bullet points
+    // Add line breaks before and after section headers (e.g., bold topics)
+    text = text.replace(/(?:\*\*)(.+?):/g, '<br /><strong>$1</strong><br />');
   
-    // Wrap the entire text in paragraph tags for better line separation
+    // Add indentation for subtopics (indentation for bullet points)
+    text = text.replace(/\*\s(.+)/g, '&nbsp;&nbsp;&nbsp;&nbsp;• $1');
+  
+    // Ensure bullet points are consistently spaced with line breaks
+    text = text.replace(/•\s*/g, '<br />&nbsp;&nbsp;&nbsp;&nbsp;• ');
+  
+    // Remove excessive line breaks between sections
+    text = text.replace(/<br \/>+/g, '<br />');
+  
+    // Add an extra line break after section headers for clarity
+    text = text.replace(/(<strong>.+<\/strong><br \/>)/g, '$1<br />');
+  
+    // Wrap the entire text in paragraph tags for better separation and spacing
     text = `<p>${text}</p>`;
   
     return text;
   };
+  
+  
+  
   
 
   const addMessage = (text, sender) => {
