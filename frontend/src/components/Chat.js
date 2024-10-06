@@ -17,8 +17,35 @@ const Chat = () => {
     }
   }, []);
 
+  const formatMessage = (text) => {
+    // Format headings (e.g., # Heading -> <h1>Heading</h1>)
+    text = text.replace(/######\s(.+)/g, '<h6>$1</h6>')
+               .replace(/#####\s(.+)/g, '<h5>$1</h5>')
+               .replace(/####\s(.+)/g, '<h4>$1</h4>')
+               .replace(/###\s(.+)/g, '<h3>$1</h3>')
+               .replace(/##\s(.+)/g, '<h2>$1</h2>')
+               .replace(/#\s(.+)/g, '<h1>$1</h1>');
+  
+    // Format bold text (e.g., **bold** -> <strong>bold</strong>)
+    text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  
+    // Format italic text (e.g., *italic* -> <em>italic</em>)
+    text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  
+    // Add spacing between sections by looking for sections after colons and bullets
+    text = text.replace(/:\s*/g, ':</p><p>')  // Adds space after colons
+               .replace(/•\s*/g, '<br />• ');  // Adds a break between bullet points
+  
+    // Wrap the entire text in paragraph tags for better line separation
+    text = `<p>${text}</p>`;
+  
+    return text;
+  };
+  
+
   const addMessage = (text, sender) => {
-    setConversation((prevConversation) => [...prevConversation, { text, sender }]);
+    const formattedText = formatMessage(text);
+    setConversation((prevConversation) => [...prevConversation, { text: formattedText, sender }]);
   };
 
   const sendMessage = async () => {
@@ -36,7 +63,7 @@ const Chat = () => {
         // Set course suggestion for confirmation
         setCourseSuggestion(botResponse);
       } catch (error) {
-        addMessage('Error communicating with the server.', 'gpt');
+        addMessage('Error communicating with the server. Please try again later.', 'gpt');
         console.error('Error:', error.message);
       } finally {
         setIsTyping(false);
@@ -57,12 +84,14 @@ const Chat = () => {
       // Notify user and reset suggestion
       addMessage('Course accepted and saved! You can access it from "Your Courses" page.', 'gpt');
       setCourseSuggestion(null);
+      setUserInput('');  // Reset input after accepting the course
     }
   };
 
   const handleDeclineCourse = () => {
     addMessage('Course declined. Please enter a new course.', 'gpt');
     setCourseSuggestion(null);
+    setUserInput('');  // Reset input after declining the course
   };
 
   const handleInputChange = (event) => {
@@ -80,7 +109,8 @@ const Chat = () => {
       <div className="chat-messages">
         {conversation.map((message, index) => (
           <div key={index} className={`chat-message ${message.sender === 'gpt' ? 'chat-right' : 'chat-left'}`}>
-            {message.text}
+            {/* Display formatted text using dangerouslySetInnerHTML */}
+            <div dangerouslySetInnerHTML={{ __html: message.text }} />
           </div>
         ))}
         {isTyping && (
@@ -91,6 +121,7 @@ const Chat = () => {
           </div>
         )}
       </div>
+
       {courseSuggestion && (
         <div className="course-suggestion">
           <p>Do you want to accept this course suggestion?</p>
