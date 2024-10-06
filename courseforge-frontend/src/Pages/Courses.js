@@ -1,24 +1,22 @@
 import React from 'react';
 import './Courses.css';
+import Dropdown from '../components/Dropdown'
 
-function App( ) {
+function App() {
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <h1>Welcome to My Home Page</h1>
-        <p>
-          This is a simple React homepage.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Main Content */}
+      <div className="main-content">
+        {/* Title */}
+        <header className="App-header">
+        <h1 className="gradient-text">Your Courses</h1>
+        <div className="tools-icon"></div> {/* Placeholder for the tools icon */}
+        </header>
+        <Dropdown/>
+        
     </div>
+  </div>
   );
 }
 

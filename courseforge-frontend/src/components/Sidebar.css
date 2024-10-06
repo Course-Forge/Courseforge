@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: space-between;
   
-  transition: width 0.3s ease;
+  transition: width 1s ease;
   z-index: 10; /* Ensure it's above other elements */
   width: 60px; /* Default width when collapsed */
 }
@@ -48,12 +48,12 @@
   position: fixed; /* Overlay the sidebar */
   height: 100%;
   width: 250px; /* Full width when open */
-  background-color: #333;
+ 
   color: white;
   
   top: 0;
-  left: -250px;
-  transition: left 0.3s ease;
+  left: 250px;
+  transition: left 1s ease;
 }
 
 .sidebar.open {
@@ -61,7 +61,7 @@
 }
 
 .close-menu {
-  font-size: 30px;
+  font-size: 300px;
   cursor: pointer;
   padding: 10px;
   background: none;
@@ -84,9 +84,6 @@
   display: block;
 }
 
-.menu-item:hover {
-  background-color: #575757;
-}
 
 .profile {
   color: black;
@@ -112,6 +109,4 @@
   height: 40px;
 }
 
-a {
-  text-decoration: none;
-}
+

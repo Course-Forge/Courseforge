@@ -26,14 +26,15 @@ const Sidebar = () => {
           </>
         )}
          <div className="menu">
-        <a href='/' className='m-1'><div className="menu-item">Home</div></a>
+        
+        <a href='/Home' className='m-1'><div className="menu-item">Home</div></a>
         <a href='/Courses' className='m-1'><div className="menu-item">Courses</div></a>
         <a href='/Learn' className='m-1'><div className="menu-item">Learn Now</div></a>
           
         </div>
         {isOpen && (
           <div className="profile">
-            <span>Saket Tilak</span>
+            <span>Ramesh</span>
           </div>
         )}
       </div>
@@ -43,7 +44,7 @@ const Sidebar = () => {
             +
           </button>
           <div className="collapsed-profile" onClick={toggleSidebar}>
-            <img src="assets/saketprofile.png" alt="Profile" />
+           
           </div>
         </>
       )}

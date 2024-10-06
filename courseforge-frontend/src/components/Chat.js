@@ -58,7 +58,7 @@ const Chat = () => {
   };
 
   return (
-    <element class="chat">
+    
 
     <div className="chat-container">
       <div className="chat-messages">
@@ -85,7 +85,7 @@ const Chat = () => {
       <button onClick={sendMessage}>Send</button>
       <p className="disclaimer">CourseForge can make mistakes. Check important info.</p>
     </div>
-    </element>
+  
   );
 };
 
