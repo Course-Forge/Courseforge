@@ -1,0 +1,83 @@
+/* General container layout */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  
+  
+}
+ h1{
+
+}
+
+/* Main content section */
+.main-content {
+  width: 100%;
+ 
+  padding: 20px;
+}
+
+/* Title style */
+.title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+/* Course progress area */
+.course-progress {
+  background-color: #d3d3d3;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.progress-bar-container {
+  width: 100%;
+  background-color: black;
+  height: 25px;
+  border-radius: 12.5px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.progress-bar {
+  background-color: limegreen;
+  height: 100%;
+  border-radius: 12.5px;
+}
+
+.expand-button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: linear-gradient(90deg, #ff007f, #007fff);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Placeholder boxes */
+.placeholder-boxes {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.box {
+  background-color: #d3d3d3;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
