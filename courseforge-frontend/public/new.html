@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("ztgy1UiD0w5-T6pZi");  // Replace YOUR_PUBLIC_KEY with your actual public key
+        })();
+    </script>
+</head>
+<body>
+    <div class="coming-soon-container">
+        <div class="header">
+            <div class="logo">
+                <img style="color: white;" src="courseforgelogo-white.png" alt="Logo">
+            </div>
+            <div class="announcement">
+                <span>🛠️  Course Forge coming soon 🚀  </span>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Learn with <span class="highlight">ease & efficiency</span>.</h1>
+            <p style="font-size: 1.3rem;">Learning made all in one place.</p>
+            <div class="email-signup">
+                <input type="email" id="email" placeholder="Your email address...">
+                <button style="font-weight: 1600; padding: 1%; border-radius: 25px; background: linear-gradient(76deg, #ff6b6b, #505fff, #50b5ff); color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" id="waitlist-button" class="waitlist-button">Join the Waitlist</button>
+            </div>
+        </div>
+    </div>
+    <img src="../src/assets/" alt="">
+
+    <script src="script.js"></script>
+</body>
+</html>
