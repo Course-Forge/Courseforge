@@ -1,0 +1,62 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+Mono:wght@100..900&display=swap');
+*{
+  font-family: "Kanit", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Adjusts to fit the screen without forcing unnecessary scrolling */
+  text-align: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+h1{
+  font-family: "Kanit", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+.logo {
+  width: 50px; /* Adjust size as needed */
+  margin-right: 10px;
+}
+
+/* Courseforge gradient text */
+.gradient-text {
+  font-size: 80px;
+  font-weight: bold;
+  background: linear-gradient(270deg, #ff6b6b, #f8e71c, #50b5ff, #8e44ad);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-wave 5s ease infinite;
+}
+
+@keyframes gradient-wave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.tools-icon {
+  width: 90px;
+  height: 90px;
+  background: url('../assets/courseforgelogo.png') no-repeat center center;
+  background-size: cover;
+  margin-left: 15px;
+}
