@@ -1,3 +1,4 @@
+/* Chat Container */
 .chat-container {
   display: flex;
   flex-direction: column;
@@ -79,4 +80,133 @@ input[type="text"]:focus {
   .chat-container {
     width: 100%;
   }
+}
+
+/* Cool gradient buttons */
+.cool-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  background: linear-gradient(270deg, #ff6b6b, #f8e71c, #50b5ff, #8e44ad);
+  background-size: 400% 400%;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  animation: gradient-wave 4s ease infinite;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  margin: 0 10px;  /* Spacing between the buttons */
+  position: relative;
+  overflow: hidden;
+}
+
+.cool-button:hover {
+  background-position: 100% 50%;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes gradient-wave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Hover fill effect with a lighter gray */
+button {
+  position: relative;
+  overflow: hidden;
+  border: none;
+  padding: 10px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #fcee21, #f29b30);
+  color: white;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;  /* Initially hidden */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(211, 211, 211, 0.8);  /* Light gray with opacity */
+  z-index: 0;
+  transition: all 0.5s ease;  /* Slower to emphasize the animation */
+}
+
+button:hover::before {
+  left: 0;  /* Fills the button on hover */
+}
+
+/* Keep text white and on top */
+button span {
+  position: relative;
+  z-index: 1;
+  color: white;  /* Ensure text remains white */
+}
+
+/* Accept and Decline buttons */
+.accept-button, .decline-button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+/* Send button styling */
+.send-button {
+  width: calc(100% - 24px); /* Ensure width is 100% of the input minus padding */
+  padding: 10px 0; /* Adjust padding for height but remove horizontal padding */
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
+  display: block;  /* Keep as block for full width */
+  border-radius: 8px;  /* Optional: match the input styling */
+  background: linear-gradient(270deg, #ff6b6b, #f8e71c, #50b5ff, #8e44ad); /* Add gradient */
+  background-size: 400% 400%;
+  animation: gradient-wave 4s ease infinite; /* Smooth gradient wave animation */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  position: relative; /* Ensure relative positioning for hover effect */
+  overflow: hidden; /* Ensures the pseudo-element doesn't overflow */
+  margin-left: 0; /* Align to left */
+  margin-right: 0; /* Remove right margin */
+}
+
+.send-button:hover {
+  background-position: 100% 50%; /* Change background position on hover */
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+}
+
+/* Hover fill effect with a lighter gray */
+.send-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; /* Initially hidden */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(211, 211, 211, 0.8); /* Light gray with opacity */
+  z-index: 0;
+  transition: all 0.5s ease; /* Slower to emphasize the animation */
+}
+
+.send-button:hover::before {
+  left: 0; /* Fills the button on hover */
+}
+
+/* Keep text white and on top */
+.send-button span {
+  position: relative;
+  z-index: 1; /* Ensures text stays above the filling effect */
+  color: white; /* Ensure text remains white */
 }
