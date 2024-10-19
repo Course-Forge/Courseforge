@@ -100,6 +100,7 @@ input[type="text"]:focus {
   margin: 0 10px;  /* Spacing between the buttons */
   position: relative;
   overflow: hidden;
+  cursor: url('../Pages/hammer_black_left_resized.png'), auto; /* Default hammer cursor */
 }
 
 .cool-button:hover {
