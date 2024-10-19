@@ -33,7 +33,7 @@ const Sidebar = () => {
     <div className={`sidebar-container ${isOpen ? 'open' : ''}`}>
       {!isOpen && (
         <button className="burger-menu" onClick={toggleSidebar}>
-         ☰
+          ☰
         </button>
       )}
       <div ref={sidebarRef} className={`sidebar ${isOpen ? 'open' : ''}`}>
@@ -63,9 +63,9 @@ const Sidebar = () => {
       </div>
       {!isOpen && (
         <>
-          {/* <button className="plus-button" onClick={toggleSidebar}>
+          <button className="plus-button" onClick={toggleSidebar}>
             +
-          </button> */}
+          </button>
           <div className="collapsed-profile" onClick={toggleSidebar}></div>
         </>
       )}
