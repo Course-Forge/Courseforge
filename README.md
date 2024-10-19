@@ -129,6 +129,6 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 Contact
 
-For questions or support, please contact courseforgegen@ gmail.com.
+For questions or support, please contact sakettilak99@egmail.com.
 
 This layout provides a comprehensive overview of the application while being easy to navigate for users and contributors. Adjust sections based on the specific needs and features of your project.
