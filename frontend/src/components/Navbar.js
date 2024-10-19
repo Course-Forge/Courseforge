@@ -38,11 +38,11 @@ const Sidebar = () => {
       <div className={`sidebar ${isOpen ? 'open' : ''}`} ref={sidebarRef}>
         <div className="sidebar-header">
           <div className="logo">🛠️</div>
-          {isOpen && (
+          {/* {isOpen && (
             <button className="close-menu" onClick={toggleSidebar}>
               <i className="icon-arrow-left"></i>
             </button>
-          )}
+          )} */}
         </div>
         <div className="menu">
           <a href='/Home' className='menu-item'>
