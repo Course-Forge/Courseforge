@@ -157,6 +157,28 @@ def list_messages(request):
     messages_list = [{'user_message': msg.user_message, 'bot_response': msg.bot_response} for msg in messages]
     return JsonResponse({'messages': messages_list})
 
+@csrf_exempt
+def generate_course_summary(request):
+    if request.method == 'POST':
+        try:
+            # Parse JSON request body
+            data = json.loads(request.body)
+            course_description = data.get('course_description', '')
+            model = genai.GenerativeModel('gemini-1.5-flash')
+            # Generate summary for the course description
+            summary_text = model.generate_content(course_description)
+            summary_response = summary_text.text  # Access the summary response text
+
+            # Return the generated summary in the response
+            return JsonResponse({'summary': summary_response})
+
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON'}, status=400)
+        except Exception as e:
+            print(f"An error occurred while generating summary: {e}")
+            return JsonResponse({'error': str(e)}, status=500)
+    else:
+        return JsonResponse({'error': 'Invalid request method'}, status=400)
 
 
 # from .gpt_services import get_chatbot_response
