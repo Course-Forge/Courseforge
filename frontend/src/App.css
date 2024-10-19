@@ -7,6 +7,11 @@
   height: 100vh;
   background-color: transparent;
   position: relative;
+  cursor: url('/frontend/src/Pages/hammer_black_left_resized.png'), auto; 
+}
+
+ .app.clicked {
+  cursor: url('/frontend/src/Pages/hammer_black_left_tilted.png'), auto;
 }
 
 .content {
@@ -45,3 +50,5 @@
   width: 100%;
   z-index: 2;
 }
+
+

@@ -94,6 +94,8 @@ const Chat = () => {
     setUserInput(event.target.value);
   };
 
+
+  
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       sendMessage();

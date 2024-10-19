@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Sidebar.css';
-import logo from '../assets/courseforgelogo.png';
+
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);

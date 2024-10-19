@@ -62,6 +62,7 @@ input[type="text"] {
   width: calc(100% - 24px); /* Adjusted width */
   color: #000000;
   background-color: #f0f0f0;
+  cursor: url('pencil.png'), auto; /* Default hammer cursor */
 }
 
 input[type="text"]:focus {
