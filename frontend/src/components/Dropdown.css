@@ -6,7 +6,7 @@
     
     background-color: white;
     border-radius: 8px;
-    max-width: 100%; /* Set a max-width to keep it from being too wide */
+    max-width: 90%; /* Set a max-width to keep it from being too wide */
     max-block-size: 100%;
     display: flex;  
     flex-wrap: wrap; 
