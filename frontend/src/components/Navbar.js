@@ -1,6 +1,6 @@
-// src/components/Sidebar.js
 import React, { useState, useEffect, useRef } from 'react';
 import './Sidebar.css';
+import logo from '../assets/courseforgelogo.png';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,20 +10,19 @@ const Sidebar = () => {
     setIsOpen(!isOpen);
   };
 
-  // Close sidebar if clicked outside of it
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
+  const handleClickOutside = (event) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      setIsOpen(false); // Close sidebar if clicked outside
+    }
+  };
 
-    // Add event listener when sidebar is open
+  useEffect(() => {
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
     }
 
-    // Cleanup event listener when component is unmounted or sidebar is closed
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -33,27 +32,30 @@ const Sidebar = () => {
     <div className={`sidebar-container ${isOpen ? 'open' : ''}`}>
       {!isOpen && (
         <button className="burger-menu" onClick={toggleSidebar}>
-          ☰
+          <i className="icon-menu"></i>
         </button>
       )}
-      <div ref={sidebarRef} className={`sidebar ${isOpen ? 'open' : ''}`}>
-        {isOpen && (
-          <>
+      <div className={`sidebar ${isOpen ? 'open' : ''}`} ref={sidebarRef}>
+        <div className="sidebar-header">
+          <div className="logo">🛠️</div>
+          {/* {isOpen && (
             <button className="close-menu" onClick={toggleSidebar}>
-              ✕
+              <i className="icon-arrow-left"></i>
             </button>
-          </>
-        )}
+          )} */}
+        </div>
         <div className="menu">
-          <a href="/Home" className="m-1">
-            <div className="menu-item">Home</div>
+          <a href='/Home' className='menu-item'>
+            <i className="icon-chart"></i> {isOpen && <span>Home</span>}
           </a>
-          <a href="/Courses" className="m-1">
-            <div className="menu-item">Courses</div>
+          <a href='/Learn' className='menu-item'>
+            <i className="icon-map"></i> {isOpen && <span>Learn</span>}
           </a>
-          <a href="/Learn" className="m-1">
-            <div className="menu-item">Learn Now</div>
+          <a href='/Courses' className='menu-item'>
+            <i className="icon-theme"></i> {isOpen && <span>Courses</span>}
           </a>
+          
+          
         </div>
         {isOpen && (
           <div className="profile">
@@ -62,12 +64,7 @@ const Sidebar = () => {
         )}
       </div>
       {!isOpen && (
-        <>
-          <button className="plus-button" onClick={toggleSidebar}>
-            +
-          </button>
-          <div className="collapsed-profile" onClick={toggleSidebar}></div>
-        </>
+        <div className="collapsed-profile" onClick={toggleSidebar}></div>
       )}
     </div>
   );

@@ -1,99 +1,106 @@
 /* Basic styling for the app */
 
-  
-  .app-container {
-    
-    
-    background-color: white;
-    border-radius: 8px;
-    max-width: 100%; /* Set a max-width to keep it from being too wide */
-    max-block-size: 100%;
-    display: flex;  
-    flex-wrap: wrap; 
+.app-container {
+  background-color: white;
+  border-radius: 8px;
+  max-width: 90%;
+  max-block-size: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Rainbow Button Styling */
+.add-course-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(45deg, #ff0066, #ffcc00, #33cc33, #3399ff, #9933ff, #ff0066);
+  background-size: 400% 400%;
+  animation: rainbow 3s ease-in-out infinite;
+  outline: none;
+  transition: transform 0.2s ease;
+}
+
+.add-course-btn:hover {
+  transform: scale(1.05);
+}
+
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.add-course-btn:active {
+  transform: scale(0.98);
+}
+
+/* Accordion Styling */
+.accordion {
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  width: 80%;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s forwards ease;
+  min-width: 50%;
+  margin-left: 2%;
+  max-block-size: 200px;
+}
+
+.accordion-header {
+  background-color: #181616;
+  color: white;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: #353434;
+}
+
+.accordion-header.active {
+  background-color: #a09e9e;
+  color: black;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 15px;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.accordion-content.show {
+  max-height: 150px;
+  padding: 15px;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  h1 {
-    text-align: center;
-    color: #333;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Button Styling */
-  .add-course-btn {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #181616;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    
-  }
-  
-  .add-course-btn:hover {
-    background-color: #353434;
-  }
-  
-  /* Accordion Styling */
-  .accordion {
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    display: flex;
-    width: 100%; /* Ensures full width */
-    opacity: 0; /* Start hidden for fade-in effect */
-    transform: translateY(20px); /* Start off screen for animation */
-    animation: fadeIn 0.5s forwards ease; /* Apply fade-in animation */
-    min-width: 90%;
-    margin-left: 2%;
-    max-block-size: 200px;
-  }
-  
-  .accordion-header {
-    background-color: #181616;
-    color: white;
-    padding: 15px;
-    cursor: pointer;
-    font-size: 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s ease;
-  }
-  
-  .accordion-header:hover {
-    background-color: #353434;
-  }
-  
-  .accordion-header.active {
-    background-color: #a09e9e;
-    color: black;
-  }
-  
-  .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 15px;
-    
-    transition: max-height 0.3s ease, padding 0.3s ease;
-  }
-  
-  .accordion-content.show {
-    max-height: 150px;
-    padding: 15px;
-  }
-  
-  /* Fade-in Animation */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+}

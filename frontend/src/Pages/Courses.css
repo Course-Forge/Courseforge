@@ -4,16 +4,14 @@
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  
-  
 }
- h1{
 
-}
+
+
 
 /* Main content section */
 .main-content {
-  width: 100%;
+  width: 80%;
  
   padding: 20px;
 }
@@ -58,11 +56,11 @@
 
 .expand-button {
   display: block;
-  margin: 20px auto 0;
+  margin: 20%;
   padding: 10px 20px;
   font-size: 16px;
-  background: linear-gradient(90deg, #ff007f, #007fff);
-  color: white;
+ 
+  color: #333;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -80,4 +78,56 @@
   width: 150px;
   height: 150px;
   border-radius: 10px;
+}
+/* Courses.css */
+
+/* Container for course buttons */
+.course-buttons {
+  display: inline-block;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 70px;  /* Spacing between cards */
+  padding: 20px;
+  background-color: #ffffff00;
+}
+
+/* Individual course card button */
+.course-btn {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 30%; /* Adjust size as per design */
+  padding: 20px;
+  text-align: left; /* Align text to the left like a card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  
+}
+
+.course-btn:hover {
+  transform: scale(1.05); /* Slight scale on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.course-btn h2 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.course-btn p {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.course-btn .course-price {
+  font-weight: bold;
+ 
+}
+
+.course-btn img {
+  max-width: 100%;
+  border-radius: 4px; /* Rounded corners for images */
+  margin-bottom: 15px;
 }

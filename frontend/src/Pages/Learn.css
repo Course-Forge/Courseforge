@@ -1,18 +1,18 @@
-/* Basic styling for sidebar container */
+/* Sidebar Container */
 .sidebar-container {
-  position: relative;
+  position: fixed;
   display: flex;
   flex-direction: column;
-  width: 60px; /* Default collapsed width */
-  height: 100%;
-  background-color: #181616;
- 
+  width: 80px;
+  height: 100vh;
+  background-color: #333;
   font-weight: bold;
   transition: width 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
 }
 
 .sidebar-container.open {
-  width: 250px; /* Sidebar width when open */
+  width: 250px;
 }
 
 .burger-menu {
@@ -30,7 +30,6 @@
   background: none;
   border: none;
   cursor: pointer;
-  margin: 20px;
   position: absolute;
   top: 20px;
   right: 20px;
@@ -41,55 +40,98 @@
   flex-direction: column;
   padding: 20px;
   visibility: hidden;
+  position: fixed;
+  height: 100vh;
+  transition: all 0.3s ease;
 }
 
 .sidebar.open {
   visibility: visible;
 }
 
-/* Menu items styling */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 2%;
+  height: auto;
+}
+
 .menu {
   margin-top: 60px;
 }
 
 .menu-item {
-  padding: 10px;
-  color: rgb(212, 212, 212);
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  color: #d4d4d4;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-decoration: none;
   margin-bottom: 10px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .menu-item:hover {
-  color: aliceblue;
+  background-color: #2f3b4e;
+  border-radius: 10px;
+  color: #ffffff;
 }
 
-/* Profile styling when sidebar is open */
+.menu-item i {
+  font-size: 20px;
+  margin-right: 15px;
+}
+
 .profile {
   margin-top: auto;
   color: white;
+  padding: 15px 0;
 }
 
 .collapsed-profile {
   margin-top: auto;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
 }
 
-.plus-button {
-  font-size: 30px;
-  color: white;
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin: 20px;
+.sidebar-container .icon-menu::before {
+  content: "☰";
 }
 
-/* Transitions */
-.sidebar {
-  transition: all 0.3s ease;
+.sidebar-container .icon-close::before {
+  content: "";
 }
+
+/* Custom icons for each menu item (use appropriate icon font or adjust for your needs) */
+.icon-chart::before {
+  content: "🏠";
+}
+
+.icon-map::before {
+  content: "📅";
+}
+
+.icon-theme::before {
+  content: "🗺️";
+}
+
+.icon-components::before {
+  content: "🛠️";
+}
+
+.icon-ecommerce::before {
+  content: "🛒";
+}
+
+.icon-calendar::before {
+  content: "📅";
+}
+
 
