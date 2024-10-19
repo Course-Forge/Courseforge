@@ -1,10 +1,8 @@
-/* src/components/Sidebar.css */
-
 .sidebar-container {
   position: sticky; /* Sidebar stays fixed on the screen */
   top: 0;
   left: 0;
-  height: 1000vh; /* Full height of the viewport */
+  height: 100vh; /* Corrected to full height of the viewport */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -84,6 +82,28 @@
   text-decoration: none;
   color: white;
   display: block;
+  position: relative;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.menu-item:hover {
+  color: #fff; /* Ensure text remains white on hover */
+}
+
+/* Add white underline on hover */
+.menu-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease; /* Smooth transition for the underline */
+}
+
+.menu-item:hover::after {
+  width: 100%; /* Expand underline to full width on hover */
 }
 
 .profile {
