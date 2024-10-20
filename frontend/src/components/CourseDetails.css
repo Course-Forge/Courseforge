@@ -1,0 +1,49 @@
+/* Fix for preventing top content from being cut off */
+body {
+    
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    
+  }
+  
+  /* Ensure main content has enough margin from the top */
+  .main-content {
+    margin-left: 270px; /* Adjust for sidebar */
+    padding: 20px;
+    padding-top: 35%; /* Add padding to the top to prevent cutting off */
+    min-height: 100vh; /* Ensure it spans the full viewport height */
+    box-sizing: border-box;
+  }
+  
+  /* S
+  
+ 
+  
+  .sidebar a:hover {
+    background-color: #3a3a3a;
+    color: rgb(0, 0, 0);
+  }
+  
+  /* Content box/grid style for buttons or cards */
+ 
+  
+ 
+  
+  .content-box i {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .content-box h3 {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  
+  /* Grid layout for the content area */
+  .grid-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
