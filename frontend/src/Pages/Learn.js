@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './Learn.css';
+import './Learn.css'; // Import your CSS styling
 
-import MainContent from '../components/MainContent';
-import Chat from '../components/Chat';
+import MainContent from '../components/MainContent'; // MainContent component
+import Chat from '../components/Chat'; // Chat component
 
 const Learn = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,15 +17,16 @@ const Learn = () => {
   const handleClick = () => {
     setIsClicked(true);
     setTimeout(() => {
-      setIsClicked(false); // Revert cursor back after 300ms
-    }, 300);
+      setIsClicked(false); // Revert cursor back after 200ms
+    }, 200);
   };
 
   useEffect(() => {
-    // Attach click event to change cursor
+    // Attach click event to change cursor on body
     document.addEventListener('click', handleClick);
 
     return () => {
+      // Clean up the event listener on component unmount
       document.removeEventListener('click', handleClick);
     };
   }, []);
@@ -59,8 +60,8 @@ const Learn = () => {
       </div>
 
       <div className="content">
-        <MainContent messages />
-        <Chat />
+        <MainContent /> {/* Include your MainContent component */}
+        <Chat /> {/* Include your Chat component */}
       </div>
     </div>
   );

@@ -7,8 +7,8 @@
   height: 100vh;
   background-color: #333;
   font-weight: bold;
-  transition: width 0.3s ease;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  transition: width 0.3s ease; /* Only the width of the sidebar will animate */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-container.open {
@@ -22,6 +22,9 @@
   border: none;
   cursor: pointer;
   margin: 20px;
+  transition: none; /* No transition for the burger menu */
+  z-index: 2; /* Ensure it stays on top of the sidebar */
+  position: relative; /* Remove any relation to the sidebar-container transition */
 }
 
 .close-menu {
@@ -33,6 +36,8 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  z-index: 2;
+  transition: none; /* No transition for the close menu */
 }
 
 .sidebar {
@@ -86,6 +91,7 @@
   font-size: 20px;
   margin-right: 15px;
 }
+
 .profile {
   margin-top: auto;
   color: white;
@@ -124,7 +130,6 @@
 .icon-components::before {
   content: "🛠️";
 }
-
 
 .icon-calendar::before {
   content: "📅";

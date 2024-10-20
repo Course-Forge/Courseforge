@@ -15,8 +15,8 @@ export default function App() {
   const handleClick = () => {
     setIsClicked(true);
     setTimeout(() => {
-      setIsClicked(false);  // Revert back to default after 300ms
-    }, 300);
+      setIsClicked(false);  // Revert back to default after 200ms
+    }, 200);
   };
 
   useEffect(() => {

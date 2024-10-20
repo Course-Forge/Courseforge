@@ -4,8 +4,9 @@ import './Home.css';
 import MainContent from '../components/MainContent';
 import Chat from '../components/Chat';
 
-const App = () => {
 
+
+const App = () => {
   return (
     <div className="app">
     
