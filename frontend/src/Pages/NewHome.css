@@ -1,0 +1,100 @@
+/* NewHome.css */
+.app {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Full height */
+    width: 100%; /* Full width */
+    background-color: #ffffff; /* White background */
+  }
+  
+  .glow-container {
+    max-width: 800px;
+    padding: 20px;
+    text-align: center; /* Center text */
+    position: relative; /* Allow positioning for children */
+  }
+  
+  .canvas {
+    position: absolute; /* Positioning for the canvas */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make it responsive */
+    height: 100%; /* Fill the parent container */
+    z-index: -1; /* Place behind the text */
+  }
+  
+  .glow-text {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.4;
+    color: #000000;
+    text-shadow: 
+      0 0 10px rgba(255, 255, 255, 0.8), 
+      0 0 20px rgba(255, 255, 255, 0.6), 
+      0 0 30px rgba(255, 255, 255, 0.4), 
+      0 0 40px rgba(255, 255, 255, 0.2), 
+      0 0 50px rgba(255, 0, 255, 0.8), /* Adjusting glow colors */
+      0 0 60px rgba(0, 255, 255, 0.7),
+      0 0 70px rgba(0, 255, 0, 0.6);
+  }
+  
+  /* Maintain staircase effect */
+  .staircase-line {
+    margin: 0;
+    padding: 0;
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-right: -2rem;
+  }
+  
+  .line1 {
+    margin-left: -21rem; /* Create space for "Welcome" */
+  }
+  
+  .line2 {
+    margin-left: 8rem; /* Space for "to" */
+  }
+  
+  .line3 {
+    margin-left: 35rem; /* Shift "CourseForge" towards the left */
+    margin-bottom: 4rem; /* Adjust the spacing below "CourseForge" */
+  }
+  
+  .subtext {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #ffffff;
+    margin-bottom: -14rem;
+  
+    /* Align the subtext under the "Welcome" text */
+    margin-left: 8rem; /* Matches the margin of line1 to align with "Welcome" */
+    min-width: 45rem; /* Ensure the text doesn't overflow too much */
+  
+    /* Add box styling */
+    padding: 20px; /* Add padding inside the box */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #f9f9f9; /* Slight background color */
+    position: relative;
+    z-index: 1; /* Ensure it's on top */
+  
+    /* Gradient border */
+    border: 4px solid transparent; /* Set border width */
+    background-clip: padding-box; /* Clip background to padding-box */
+  }
+  
+  .subtext::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 14px; /* Match or exceed the box radius */
+    background: linear-gradient(270deg, #ff6b6b, #f8e71c, #50b5ff, #8e44ad); /* Gradient */
+    background-size: 400% 400%;
+    animation: gradient-wave 4s ease infinite; /* Animate the gradient */
+    z-index: -1; /* Place behind the subtext content */
+  }
+  

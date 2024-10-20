@@ -45,7 +45,7 @@ const Sidebar = () => {
           )} */}
         </div>
         <div className="menu">
-          <a href='/Home' className='menu-item'>
+          <a href='/NewHome' className='menu-item'>
             <i className="icon-chart"></i> {isOpen && <span>Home</span>}
           </a>
           <a href='/Learn' className='menu-item'>
@@ -54,12 +54,20 @@ const Sidebar = () => {
           <a href='/Courses' className='menu-item'>
             <i className="icon-theme"></i> {isOpen && <span>Courses</span>}
           </a>
+        <div className="profile">
+          
+        </div>
+          
+
           
           
         </div>
         {isOpen && (
           <div className="profile">
-            <span>Ramesh</span>
+            <button><a href='/Login' className='profile'>
+            {isOpen && <span>Sign In</span>}
+          </a></button>
+           
           </div>
         )}
       </div>

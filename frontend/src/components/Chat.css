@@ -103,10 +103,6 @@ input[type="text"]:focus {
   cursor: url('../Pages/hammer_black_left_resized.png'), auto; /* Default hammer cursor */
 }
 
-.cool-button:hover {
-  background-position: 100% 50%;
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
-}
 
 @keyframes gradient-wave {
   0% {
@@ -147,9 +143,6 @@ button::before {
   transition: all 0.5s ease;  /* Slower to emphasize the animation */
 }
 
-button:hover::before {
-  left: 0;  /* Fills the button on hover */
-}
 
 /* Keep text white and on top */
 button span {
@@ -202,9 +195,9 @@ button span {
   transition: all 0.5s ease; /* Slower to emphasize the animation */
 }
 
-.send-button:hover::before {
+/* .send-button:hover::before {
   left: 0; /* Fills the button on hover */
-}
+
 
 /* Keep text white and on top */
 .send-button span {

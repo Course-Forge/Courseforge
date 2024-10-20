@@ -7,6 +7,8 @@ import Home from './Pages/Home';
 import Navbar from "./components/Navbar";
 import Courses from './Pages/Courses';
 import Learn from './Pages/Learn';
+import NewHome from './Pages/NewHome';
+import Login from './components/Login';
 
 export default function App() {
   const [isClicked, setIsClicked] = useState(false);
@@ -35,9 +37,11 @@ export default function App() {
         <Navbar /> {/* Navbar stays on top of the routes */}
         <div className="content-container">
           <Routes>
-            <Route index element={<Home />}></Route>
+            <Route index element={<NewHome />}></Route>
             <Route path="/courses" element={<Courses />}></Route>
             <Route path="/learn" element={<Learn />}></Route>
+            <Route path="/newhome" element={<NewHome />}></Route>
+            <Route path="/login" element={<Login />}></Route>
           </Routes>
         </div>
       </div>
