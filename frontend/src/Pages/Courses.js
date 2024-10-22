@@ -48,7 +48,7 @@ const Courses = () => {
 
   return (
     <div className="App">
-      <div className="starfield"></div> {/* Starfield background */}
+      <div className="starfield"></div> Starfield background
       <div className="main-content">
         <header className="App-header">
           <h1 className="gradient-text">My Courses</h1>

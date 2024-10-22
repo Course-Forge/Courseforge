@@ -1,0 +1,33 @@
+.logincontent {
+  margin-top: 15%;
+  cursor: url('/hammer_black_left_resized.png'), auto; /* Default hammer cursor */
+}
+
+.logincontent.clicked {
+  cursor: url('/hammer_black_left_tilted.png'), auto; /* Tilted hammer cursor when clicked */
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+h3 {
+  margin: 20px 0;
+}
+
+input {
+  width: 300px;
+  padding: 10px;
+  margin: 0 auto;
+  display: block;
+}
+
+.loginbutton {
+  width: 250px;
+  padding: 10px;
+  margin: 10px auto;
+  display: block;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

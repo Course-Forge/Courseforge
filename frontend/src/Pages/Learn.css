@@ -126,12 +126,20 @@
   content: "🛠️";
 }
 
-.icon-ecommerce::before {
-  content: "🛒";
-}
-
 .icon-calendar::before {
   content: "📅";
 }
 
+/* App styling for the hammer cursor */
+.app {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  height: 100vh;
+  background-color: transparent;
+  position: relative;
+  cursor: url('hammer_black_left_resized.png'), auto; /* Default hammer cursor */
+}
 
+.app.clicked {
+  cursor: url('hammer_black_left_tilted.png'), auto; /* Hammer cursor on click */
+}

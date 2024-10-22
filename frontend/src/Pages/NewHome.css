@@ -1,0 +1,162 @@
+/* Application containers */
+.app-dark {
+  background: radial-gradient(circle at center, #0a0c10 20px, #0c1f4d 1000px, #171923 100%);
+  color: white;
+  width: 100%;
+  height: 100vh;
+  text-align: left;
+  position: relative;
+  padding: 0 20px;
+  cursor: url('hammer_black_left_resized.png'), auto; /* Default hammer cursor */
+}
+
+
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-theme-toggle {
+  width: 50px;
+  height: 24px;
+  background-color: #333;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: left;
+  padding: 2px;
+  position: relative;
+}
+
+.theme-toggle-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  transition: 0.3s ease;
+}
+
+.toggle-dark {
+  left: 2px;
+}
+
+.toggle-light {
+  right: 2px;
+}
+
+/* Hero Section */
+.hero-section {
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+.hero-greeting {
+  color: #00d1ff;
+  font-size: 1.5rem;
+  margin: 0;
+  padding-top: 250px;
+  text-align: left;
+}
+
+.hero-name {
+  font-size: 4.5rem;
+  font-weight: 800;
+  margin: 10px 0;
+  
+}
+
+.hero-subtitle {
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 5px 0;
+}
+
+.hero-description {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 20px 0 40px;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.button-primary {
+  padding: 12px 30px;
+  border-radius: 30px;
+  background-color: #00d1ff;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button-primary:hover {
+  background-color: #00b5e0;
+}
+
+.button-secondary {
+  padding: 12px 30px;
+  border-radius: 30px;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.button-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.hero-greeting {
+  color: #00d1ff;
+  font-size: 1.5rem;
+  margin: 0;
+  padding-top: 250px;
+  text-align: left;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow to show typewriter effect */
+  position: relative; /* Needed for absolute positioning of cursor */
+}
+
+.cursor {
+  display: inline-block;
+  color: #00d1ff; /* Match the greeting text color */
+  animation: pulse 1s infinite; /* Pulsing animation */
+  margin-left: 5px; /* Space between text and cursor */
+}
+
+.cursor.visible {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0; /* Fade cursor */
+  }
+}
+
+.app.clicked {
+  cursor: url('hammer_black_left_tilted.png'), auto; /* Hammer cursor on click */
+}

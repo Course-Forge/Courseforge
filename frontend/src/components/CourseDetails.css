@@ -1,49 +1,58 @@
-/* Fix for preventing top content from being cut off */
 body {
-    
-    color: #000000;
-    font-family: 'Roboto', sans-serif;
-    
-  }
-  
-  /* Ensure main content has enough margin from the top */
-  .main-content {
-    margin-left: 270px; /* Adjust for sidebar */
-    padding: 20px;
-    padding-top: 35%; /* Add padding to the top to prevent cutting off */
-    min-height: 100vh; /* Ensure it spans the full viewport height */
-    box-sizing: border-box;
-  }
-  
-  /* S
-  
- 
-  
-  .sidebar a:hover {
-    background-color: #3a3a3a;
-    color: rgb(0, 0, 0);
-  }
-  
-  /* Content box/grid style for buttons or cards */
- 
-  
- 
-  
-  .content-box i {
-    font-size: 36px;
-    margin-bottom: 10px;
-  }
-  
-  .content-box h3 {
-    margin: 10px 0;
-    font-size: 18px;
-  }
-  
-  /* Grid layout for the content area */
-  .grid-layout {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Main content style */
+.main-content {
+  margin-left: 270px;
+  padding: 20px;
+  padding-top: 35%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Course details container */
+.course-details-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading and paragraph styles */
+.course-details-container h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.course-details-container h3 {
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.course-details-container p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Custom style for bold text */
+.custom-bold {
+  font-weight: 600; /* Lighter than regular bold */
+  color: #444; /* Softer color */
+}
+
+/* Custom style for italics */
+.custom-italic {
+  font-style: italic;
+  color: #666; /* Lighter shade for italics */
+}
+
+/* Custom bullet point styling */
+.custom-bullet {
+  margin-left: 20px;
+  font-size: 18px;
+  line-height: 1.5;
+}
