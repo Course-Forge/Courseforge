@@ -47,6 +47,7 @@
   top: 0;
   width: 100%;
   z-index: 2;
+  cursor: url('/frontend/src/Pages/hammer_black_left_resized.png'), auto; 
 }
 
 
