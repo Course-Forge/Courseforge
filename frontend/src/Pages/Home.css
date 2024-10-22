@@ -1,71 +1,71 @@
+/* General container layout */
 .App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #ffffff;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-/* src/components/MainContent.css */
+/* Main content section */
 .main-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; /* Adjusted height to fit the viewport */
-  text-align: center;
-  z-index: 1; /* Z-index adjustment to ensure proper stacking order */
+  width: 80%;
+  padding: 20px;
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.logo {
-  width: 50px; /* Adjust size as needed */
-  margin-right: 10px;
-}
-
+/* Title style */
 .gradient-text {
-  font-size: 80px;
+  font-size: 48px;
   font-weight: bold;
-  background: linear-gradient(270deg, #ff6b6b, #f8e71c, #50b5ff, #8e44ad);
-  background-size: 800% 800%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-wave 5s ease infinite;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333; /* Adjust color as needed */
+  text-transform: uppercase; /* Ensure text is all caps */
 }
 
-@keyframes gradient-wave {
-  0% {
-      background-position: 0% 50%;
-  }
-  50% {
-      background-position: 100% 50%;
-  }
-  100% {
-      background-position: 0% 50%;
-  }
+/* Container for course buttons */
+.course-buttons {
+  display: flex; /* Change to flex for horizontal alignment */
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+  justify-content: center; /* Center align the items */
+  gap: 20px; /* Space between course items */
+  padding: 20px;
+  background-color: #ffffff00;
 }
 
-.tools-icon {
-  width: 90px;
-  height: 90px;
-  background: url('../assets/courseforgelogo.png') no-repeat center center;
-  background-size: cover;
-  margin-left: 15px;
+/* Individual course card button */
+.course-btn {
+  background-color: #fff; /* Background color for the button */
+  border: 1px solid #ddd; /* Standard border */
+  border-radius: 8px;
+  width: 150px; /* Set width */
+  height: 120px; /* Set height */
+  padding: 10px; /* Padding inside the button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+/* Hover effect for the course button */
+.course-btn:hover {
+  transform: scale(1.05); /* Slight scale on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.course-btn h2 {
+  font-size: 1rem; /* Smaller font size */
+  color: #333;
+  margin-bottom: 5px; /* Reduced margin */
+}
+
+.course-btn p {
+  color: #777;
+  font-size: 0.8rem; /* Smaller font size */
+}
+
+/* Course title style */
+.course-title {
+  font-size: 1rem; /* Title font size */
+  color: #333; /* Standard color */
+  margin-bottom: 5px; /* Space below the title */
+  text-align: center; /* Center align titles */
 }

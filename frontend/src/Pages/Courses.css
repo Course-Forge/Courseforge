@@ -4,130 +4,113 @@
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  position: relative; /* Position relative to allow absolute positioning of stars */
+  overflow: hidden; /* Prevent scrollbars from appearing */
 }
 
+/* Starfield background */
+.starfield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black; /* Starfield background color */
+  overflow: hidden; /* Hide overflow */
+  z-index: 0; /* Behind all other content */
+}
 
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white; /* Color of the stars */
+  animation: twinkle 1.5s infinite alternate; /* Twinkle animation */
+}
 
+/* Starfield animation */
+@keyframes twinkle {
+  0% {
+    opacity: 0.5; /* Start semi-transparent */
+  }
+  100% {
+    opacity: 1; /* End fully opaque */
+  }
+}
 
 /* Main content section */
 .main-content {
   width: 80%;
- 
   padding: 20px;
+  z-index: 1; /* Above starfield */
+  position: relative; /* Ensure stacking context */
 }
 
 /* Title style */
-.title {
+.gradient-text {
   font-size: 48px;
   font-weight: bold;
-  margin-bottom: 0px;
-  text-align: center;
-}
-
-/* Course progress area */
-.course-progress {
-  background-color: #d3d3d3;
-  padding: 20px;
-  border-radius: 10px;
   margin-bottom: 20px;
+  text-align: center;
+  color: #333; /* Adjust color as needed */
+  text-transform: uppercase; /* Ensure text is all caps */
 }
-
-.course-header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.progress-bar-container {
-  width: 100%;
-  background-color: black;
-  height: 25px;
-  border-radius: 12.5px;
-  margin-top: 10px;
-  position: relative;
-}
-
-.progress-bar {
-  background-color: limegreen;
-  height: 100%;
-  border-radius: 12.5px;
-}
-
-.expand-button {
-  display: block;
-  margin: 20%;
-  padding: 10px 20px;
-  font-size: 16px;
- 
-  color: #333;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Placeholder boxes */
-.placeholder-boxes {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-.box {
-  background-color: #d3d3d3;
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-}
-/* Courses.css */
 
 /* Container for course buttons */
 .course-buttons {
-  display: inline-block;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 70px;  /* Spacing between cards */
+  display: flex; /* Arrange items in a row */
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+  justify-content: center; /* Center align the items */
+  gap: 40px; /* Space between cards */
   padding: 20px;
   background-color: #ffffff00;
 }
 
-/* Individual course card button */
-.course-btn {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  width: 30%; /* Adjust size as per design */
-  padding: 20px;
-  text-align: left; /* Align text to the left like a card */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-  transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer;
-  
+/* Individual course item */
+.course-item {
+  display: flex;
+  flex-direction: column; /* Stack title and button vertically */
+  align-items: center; /* Center align items */
 }
 
+/* Individual course card button */
+.course-btn {
+  position: relative; /* Position for pseudo-element */
+  background-color: #fff; /* Background color for the button */
+  border-radius: 8px;
+  width: 150px; /* Set width */
+  height: 120px; /* Set height */
+  padding: 10px; /* Reduced padding */
+  text-align: left; /* Align text to the left like a card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  transition: transform 0.2s, box-shadow 0.2s; /* Transition for smooth effects */
+  cursor: pointer;
+  overflow: hidden; /* Hide overflow for fading effect */
+}
+
+/* Hover effect for the course button */
 .course-btn:hover {
+  background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Gradient background */
+  color: white; /* Change text color on hover */
   transform: scale(1.05); /* Slight scale on hover */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Title and description styling */
+.course-title {
+  font-size: 1.2rem; /* Increased font size */
+  font-weight: bold; /* Bold title */
+  color: #333; /* Standard color */
+  margin-bottom: 5px; /* Space below the title */
+  text-align: center; /* Center align titles */
+}
+
 .course-btn h2 {
-  font-size: 1.2rem;
+  font-size: 1rem; /* Standard font size */
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 5px; /* Reduced margin */
 }
 
 .course-btn p {
   color: #777;
-  font-size: 0.9rem;
-}
-
-.course-btn .course-price {
-  font-weight: bold;
- 
-}
-
-.course-btn img {
-  max-width: 100%;
-  border-radius: 4px; /* Rounded corners for images */
-  margin-bottom: 15px;
+  font-size: 0.8rem; /* Smaller font size */
 }
