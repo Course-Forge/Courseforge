@@ -1,11 +1,14 @@
 /* Ensure the .App and .main-content fill the full viewport */
 .App {
-  height: 100vh; /* Viewport height */
+  height: 100%; /* Viewport height */
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Prevent overflow and ensure content fits */
   position: relative;
   overflow: hidden;
+  margin-left: -13%;
+  margin-top: 10.25%;
+  
 }
 
 /* Starfield background */
@@ -15,15 +18,15 @@
   left: 0;
   width: 100%;
   height: 100%; /* Ensure the starfield covers exactly the viewport */
-  background: black; /* Starfield background color */
-  overflow: hidden; /* Hide overflow */
+  background: radial-gradient(circle at center, #0a0c10 20px, #0c1f4d 1000px, #171923 100%);
+  
   z-index: 0; /* Behind all other content */
 }
 
 .star {
   position: absolute;
   border-radius: 50%;
-  background: white; /* Color of the stars */
+  background: rgba(255, 255, 255, 0); /* Color of the stars */
   animation: twinkle 1.5s infinite alternate; /* Twinkle animation */
 }
 
@@ -40,7 +43,7 @@
 .main-content {
   flex: 1; /* This will take up the remaining space */
   width: 80%;
-  padding: 20px;
+  padding: 45px;
   z-index: 1; /* Above starfield */
   position: relative;
   overflow: hidden;
@@ -81,21 +84,24 @@
 /* Individual course card button */
 .course-btn {
   position: relative; /* Position for pseudo-element */
-  background-color: #fff; /* Background color for the button */
-  border-radius: 8px;
-  width: 40%; /* Set width */
-  height: 120px; /* Set height */
+  background-color: #ffffff; /* Background color for the button */
+  border-radius: 4px;
+  width: 50%; /* Set width */
+  height: 200px; /* Set height */
   padding: 10px; /* Reduced padding */
   text-align: left; /* Align text to the left like a card */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  box-shadow: 5px 15px 20px rgba(161, 2, 209, 0.47); /* Light shadow for depth */
   transition: transform 0.2s, box-shadow 0.2s; /* Transition for smooth effects */
   cursor: pointer;
   overflow: hidden; /* Hide overflow for fading effect */
+  
 }
+
 
 /* Hover effect for the course button */
 .course-btn:hover {
-  background: linear-gradient(45deg, rgb(219, 177, 219), rgb(189, 72, 189)); /* Gradient background */
+  background: linear-gradient(270deg, #50b6ff, #8d44ad); /* Gradient background */
+  
   color: white; /* Change text color on hover */
   transform: scale(1.05); /* Slight scale on hover */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -119,4 +125,10 @@
 .course-btn p {
   color: #777;
   font-size: 0.8rem; /* Smaller font size */
+}
+.App-header{
+  margin-top: -52%;
+}
+.Unavalible{
+  color: white;
 }

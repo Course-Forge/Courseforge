@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
+import ParallaxTilt from 'react-parallax-tilt';
+import 'react-loading-skeleton/dist/skeleton.css'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import './Courses.css';
+
+
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   const navigate = useNavigate();
 
+  
   useEffect(() => {
     const db = getDatabase();
     const coursesRef = ref(db, 'courses/');
@@ -48,7 +54,7 @@ const Courses = () => {
 
   return (
     <div className="App">
-      <div className="starfield"></div> Starfield background
+      <div className="starfield"></div> 
       <div className="main-content">
         <header className="App-header">
           <h1 className="gradient-text">My Courses</h1>
@@ -57,6 +63,7 @@ const Courses = () => {
         <div className="course-buttons">
           {courses.length > 0 ? (
             courses.map((course, index) => (
+              <ParallaxTilt>
               <button 
                 key={course.id} 
                 onClick={() => handleCourseClick(course.id)} 
@@ -65,9 +72,15 @@ const Courses = () => {
                 <h2>{course.courseName}</h2>
                 <p>{course.description}</p>
               </button>
+              </ParallaxTilt>  
             ))
           ) : (
-            <p>No courses available</p>
+            
+            <SkeletonTheme baseColor="" highlightColor="#444">
+    <p>
+      <Skeleton count={3} />
+    </p>
+  </SkeletonTheme>
           )}
         </div>
       </div>
