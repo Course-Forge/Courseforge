@@ -1,0 +1,97 @@
+/* Main container for the course details */
+.course-details {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    color: black;
+
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Styling for each day section in the accordion */
+.day-section {
+    margin: 15px 0;
+    border: 1px solid #1d1d1d;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+}
+
+summary{
+    font-size: 20px;
+    color: #000000;
+    text-align: center;
+}
+
+/* The header part of each day, clickable to expand/collapse */
+.day-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.day-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.arrow {
+    font-size: 20px;
+    transform: rotate(0deg);
+    transition: transform 0.2s;
+}
+
+/* The content part of each day, shown/hidden based on accordion state */
+.day-content {
+    padding: 15px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    animation: fadeIn 0.3s ease;
+}
+
+.day-content p {
+    margin: 10px 0;
+}
+
+/* Styling for the "Next" button */
+.next-day-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.next-day-btn:hover {
+    background-color: #45a049;
+}
+
+/* Animation for content appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

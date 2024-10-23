@@ -341,49 +341,49 @@
 #     else:
 #         return JsonResponse({'error': 'Invalid request'}, status=400)
 
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from .models import ChatMessage
-import google.generativeai as genai
-import json
-import os
-from django.conf import settings
+# from django.http import JsonResponse
+# from django.views.decorators.csrf import csrf_exempt
+# from .models import ChatMessage
+# import google.generativeai as genai
+# import json
+# import os
+# from django.conf import settings
 
-@csrf_exempt
-def chatbot_response(request):
-    if request.method == 'POST':
-        try:
-            # Configure the generative AI client
-            genai.configure(api_key=settings.GEMINI_API_KEY)
-            # print(settings.GEMINI_API_KEY)
-            model = genai.GenerativeModel('gemini-1.5-flash')
+# @csrf_exempt
+# def chatbot_response(request):
+#     if request.method == 'POST':
+#         try:
+#             # Configure the generative AI client
+#             genai.configure(api_key=settings.GEMINI_API_KEY)
+#             # print(settings.GEMINI_API_KEY)
+#             model = genai.GenerativeModel('gemini-1.5-flash')
             
-            # Parse JSON request body
-            data = json.loads(request.body)
-            user_message = data.get('user_message', '')
+#             # Parse JSON request body
+#             data = json.loads(request.body)
+#             user_message = data.get('user_message', '')
             
-            # Generate bot response
-            bot_text = model.generate_content(user_message)
-            bot_response = bot_text.text  # Correctly access the response text
+#             # Generate bot response
+#             bot_text = model.generate_content(user_message)
+#             bot_response = bot_text.text  # Correctly access the response text
 
-            # Save message to the database
-            ChatMessage.objects.create(user_message=user_message, bot_text=bot_response)
+#             # Save message to the database
+#             ChatMessage.objects.create(user_message=user_message, bot_text=bot_response)
 
-            # Return JSON response with the bot's response
-            return JsonResponse({'response': bot_response})  # Match the key expected in React
+#             # Return JSON response with the bot's response
+#             return JsonResponse({'response': bot_response})  # Match the key expected in React
 
-        except json.JSONDecodeError:
-            return JsonResponse({'error': 'Invalid JSON'}, status=400)
-        except Exception as e:
-            print(f"An error occurred: {e}")  # Log the error for debugging
-            return JsonResponse({'error': str(e)}, status=500)
-    else:
-        return JsonResponse({'error': 'Invalid request method'}, status=400)
+#         except json.JSONDecodeError:
+#             return JsonResponse({'error': 'Invalid JSON'}, status=400)
+#         except Exception as e:
+#             print(f"An error occurred: {e}")  # Log the error for debugging
+#             return JsonResponse({'error': str(e)}, status=500)
+#     else:
+#         return JsonResponse({'error': 'Invalid request method'}, status=400)
 
-def list_messages(request):
-    messages = ChatMessage.objects.all()
-    messages_list = [{'user_message': msg.user_message, 'bot_response': msg.bot_response} for msg in messages]
-    return JsonResponse({'messages': messages_list})
+# def list_messages(request):
+#     messages = ChatMessage.objects.all()
+#     messages_list = [{'user_message': msg.user_message, 'bot_response': msg.bot_response} for msg in messages]
+#     return JsonResponse({'messages': messages_list})
 
 
 
@@ -401,3 +401,120 @@ def list_messages(request):
 #         except Exception as e:
 #             return JsonResponse({'error': str(e)}, status=500)
 #     return JsonResponse({'error': 'Invalid request method'}, status=405)
+
+
+
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import ChatMessage
+import google.generativeai as genai
+import json
+import os
+from django.conf import settings
+
+@csrf_exempt
+def chatbot_response(request):
+    if request.method == 'POST':
+        try:
+            # Configure the generative AI client
+            genai.configure(api_key=settings.GEMINI_API_KEY)
+            model = genai.GenerativeModel('gemini-1.5-flash')
+            
+            # Parse JSON request body
+            data = json.loads(request.body)
+            user_message = data.get('user_message', '')
+
+            # Prompt engineering for better course summary
+            prompt = f"Generate a detailed course plan for the following topic: {user_message}. Provide the following details: \
+                      1. A general summary of the course. Mention what the course will cover generally. (should be quite short in about 4-5 organized sentences.)\
+                      2. Also simply say how many days the course will take after a couple of spaces like this: Example: Course Duration: 10-15 days."
+             
+
+            # Generate bot response using the engineered prompt
+            bot_text = model.generate_content(prompt)
+            bot_response = bot_text.text
+
+            # Save message to the database
+            ChatMessage.objects.create(user_message=user_message, bot_text=bot_response)
+
+            # Return JSON response with the bot's response
+            return JsonResponse({'response': bot_response})  # Match the key expected in React
+
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON'}, status=400)
+        except Exception as e:
+            print(f"An error occurred: {e}")  # Log the error for debugging
+            return JsonResponse({'error': str(e)}, status=500)
+    else:
+        return JsonResponse({'error': 'Invalid request method'}, status=400)
+    
+# @csrf_exempt
+# def generate_course_summary(request):
+#     if request.method == 'POST':
+#         try:
+#             # Configure the generative AI client
+#             genai.configure(api_key=settings.GEMINI_API_KEY)
+#             model = genai.GenerativeModel('gemini-1.5-flash')
+            
+#             # Parse JSON request body
+#             data = json.loads(request.body)
+#             user_message = data.get('user_message', '')
+
+#             # Prompt engineering for better course summary
+#             prompt = f"Generate a detailed course plan for the following topic: {user_message}. Provide the following details: \
+#                       1. A general summary of the course. Mention what the course will cover generally. (should be quite short in about 4-5 organized sentences.)\
+#                       2. Also simply say how many days the course will take after a couple of spaces like this: Example: Course Duration: 10-15 days."
+             
+
+#             # Generate bot response using the engineered prompt
+#             bot_text = model.generate_content(prompt)
+#             bot_response = bot_text.text
+
+#             # Save message to the database
+#             ChatMessage.objects.create(user_message=user_message, bot_text=bot_response)
+
+#             # Return JSON response with the bot's response
+#             return JsonResponse({'response': bot_response})  # Match the key expected in React
+
+#         except json.JSONDecodeError:
+#             return JsonResponse({'error': 'Invalid JSON'}, status=400)
+#         except Exception as e:
+#             print(f"An error occurred: {e}")  # Log the error for debugging
+#             return JsonResponse({'error': str(e)}, status=500)
+#     else:
+#         return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+#  2. How long the course might take (in days or weeks). \
+#                       3. A breakdown of what to do on a daily or weekly basis."
+
+# def list_messages(request):
+#     messages = ChatMessage.objects.all()
+#     messages_list = [{'user_message': msg.user_message, 'bot_response': msg.bot_response} for msg in messages]
+#     return JsonResponse({'messages': messages_list})
+
+# @csrf_exempt
+# def generate_course_summary(request):
+#     if request.method == 'POST':
+#         try:
+#             # Parse JSON request body
+#             data = json.loads(request.body)
+#             course_description = data.get('course_description', '')
+#             model = genai.GenerativeModel('gemini-1.5-flash')
+#             prompt = f"Generate a quick two to three word summary description based on this: {course_description}"
+                     
+#             # Generate summary for the course description
+#             summary_text = model.generate_content(prompt)
+#             summary_response = summary_text.text  # Access the summary response text
+
+#             # Return the generated summary in the response
+#             return JsonResponse({'summary': summary_response})
+
+#         except json.JSONDecodeError:
+#             return JsonResponse({'error': 'Invalid JSON'}, status=400)
+#         except Exception as e:
+#             print(f"An error occurred while generating summary: {e}")
+#             return JsonResponse({'error': str(e)}, status=500)
+#     else:
+#         return JsonResponse({'error': 'Invalid request method'}, status=400)
+
