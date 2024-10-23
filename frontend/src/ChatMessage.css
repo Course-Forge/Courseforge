@@ -7,12 +7,12 @@
 
 .chat-message.user {
   background-color: #007bff;
-  color: white;
+  color: rgba(255, 255, 255, 0);
   align-self: flex-end;
 }
 
 .chat-message.bot {
-  background-color: #e5e5e5;
-  color: black;
+  background-color: #00000000;
+  color: rgb(255, 255, 255);
   align-self: flex-start;
 }

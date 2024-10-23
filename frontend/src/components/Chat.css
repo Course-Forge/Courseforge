@@ -59,7 +59,6 @@
 .loading-screen {
   display: flex;
   flex-direction: column;
-  
   justify-content: left;
   height: 100%;
 }
@@ -76,11 +75,14 @@ input[type="text"] {
   border-radius: 5px;
   margin-top: 10px;
   font-size: 16px;
-  width: calc(100% - 24px); /* Adjusted width */
+  width: calc(100% - 27px); /* Decreased width by increasing the subtraction */
   color: #000000;
   background-color: #f0f0f0;
+  margin-left: 1px; /* Optional: Slight margin on the left */
+  margin-right: 15px; /* Optional: Slight margin on the right */
   cursor: url('pencil.png'), auto; /* Default hammer cursor */
 }
+
 
 input[type="text"]:focus {
   outline: none;
@@ -92,50 +94,12 @@ input[type="text"]:focus {
   text-align: center;
   margin-top: 5px;
   font-size: 12px;
-  color: #000000;
+  color: rgb(255, 255, 255);
 }
 
 @media (max-width: 600px) {
   .chat-container {
     width: 100%;
-  }
-}
-
-/* Cool gradient buttons */
-.cool-button {
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: bold;
-  background: linear-gradient(270deg, #ff6b6b, #f8e71c, #50b5ff, #8e44ad);
-  background-size: 400% 400%;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  animation: gradient-wave 4s ease infinite;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-  margin: 0 10px;  /* Spacing between the buttons */
-  position: relative;
-  overflow: hidden;
-  cursor: url('../Pages/hammer_black_left_resized.png'), auto; /* Default hammer cursor */
-}
-
-
-.cool-button:hover {
-  background-position: 100% 50%;
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes gradient-wave {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
   }
 }
 
@@ -148,7 +112,6 @@ button {
   font-size: 16px;
   cursor: pointer;
   border-radius: 8px;
-  
   color: white;
   font-weight: bold;
   transition: background 0.3s ease;
@@ -158,75 +121,171 @@ button::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;  /* Initially hidden */
+  left: -100%;
   width: 100%;
   height: 100%;
-  
   z-index: 0;
-  transition: all 0.5s ease;  /* Slower to emphasize the animation */
+  transition: all 0.5s ease;
 }
 
-
-
-/* Keep text white and on top */
+/* Button text */
 button span {
   position: relative;
   z-index: 1;
-  color: white;  /* Ensure text remains white */
+  color: white;
 }
 
-/* Accept and Decline buttons */
 .accept-button, .decline-button {
   padding: 10px 20px;
-  margin-right: 10px;
-  display: inline-block;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(148deg, rgba(58,178,226,1) 10%, rgba(123,93,217,1) 39%, rgba(161,73,205,1) 67%, rgba(161,110,214,1) 92%);
+  background-size: 400% 400%;
+  animation: gradient-wave 4s ease infinite;
+  cursor: pointer;
 }
 
-/* Send button styling */
+
+.accept-button:hover, .decline-button:hover {
+  background-position: 100% 50%;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.accept-button::before, .decline-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(211, 211, 211, 0.8);
+  z-index: 0;
+  transition: all 0.5s ease;
+}
+
+.accept-button:hover::before, .decline-button:hover::before {
+  left: 0;
+}
+
 .send-button {
-  width: calc(100% - 24px); /* Ensure width is 100% of the input minus padding */
-  padding: 10px 0; /* Adjust padding for height but remove horizontal padding */
+  width: calc(100% - 24px);
+  padding: 10px 0;
   font-size: 16px;
   margin-top: 10px;
   text-align: center;
-  display: block;  /* Keep as block for full width */
-  border-radius: 8px;  /* Optional: match the input styling */
-  background: linear-gradient(270deg, #ff6b6b, #f8e71c, #50b5ff, #8e44ad); /* Add gradient */
+  display: block;
+  border-radius: 8px;
+  background: linear-gradient(148deg, rgba(58,178,226,1) 10%, rgba(123,93,217,1) 39%, rgba(161,73,205,1) 67%, rgba(161,110,214,1) 92%);
   background-size: 400% 400%;
-  animation: gradient-wave 4s ease infinite; /* Smooth gradient wave animation */
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-  position: relative; /* Ensure relative positioning for hover effect */
-  overflow: hidden; /* Ensures the pseudo-element doesn't overflow */
-  margin-left: 0; /* Align to left */
-  margin-right: 0; /* Remove right margin */
-  cursor: url('../Pages/hammer_black_left_resized.png'), auto; /* Default hammer cursor */
+  animation: gradient-wave 4s ease infinite;
+  position: relative;
+  overflow: hidden;
+  margin-left: 0;
+  margin-right: 0;
+  cursor: url('../Pages/hammer_black_left_resized.png'), auto;
 }
 
 .send-button:hover {
-  background-position: 100% 50%; /* Change background position on hover */
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+  background-position: 100% 50%;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Hover fill effect with a lighter gray */
 .send-button::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%; /* Initially hidden */
+  left: -100%;
   width: 100%;
   height: 100%;
-  background-color: rgba(211, 211, 211, 0.8); /* Light gray with opacity */
+  background-color: rgba(211, 211, 211, 0.8);
   z-index: 0;
-  transition: all 0.5s ease; /* Slower to emphasize the animation */
+  transition: all 0.5s ease;
 }
 
 .send-button:hover::before {
-  left: 0; /* Fills the button on hover */
+  left: 0;
 }
 
-/* Keep text white and on top */
 .send-button span {
   position: relative;
-  z-index: 1; /* Ensures text stays above the filling effect */
-  color: white; /* Ensure text remains white */
+  color: white;
+}
+
+.highlighted-text {
+  color: #ffffff;
+}
+
+.course-greeting {
+  color: #ffffff;
+  font-size: 1rem;
+  margin: 0;
+  padding-top: 20px;
+  text-align: left;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow to show typewriter effect */
+  position: relative; /* Needed for absolute positioning of cursor */
+}
+
+.cursor {
+  display: inline-block;
+  color: #ffffff; /* Match the greeting text color */
+  animation: pulse 1s infinite; /* Pulsing animation */
+  margin-left: 5px; /* Space between text and cursor */
+}
+
+.cursor.visible {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0; /* Fade cursor */
+  }
+}
+
+/* Chatbox and button alignment */
+#textbox-container {
+  display: flex;
+  justify-content: flex-start; /* Align everything to the left */
+  align-items: center;
+  width: 100%;
+}
+
+#textbox {
+  padding: 10px;
+  border: 1.5px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  flex-grow: 1; /* Allow the text box to grow */
+  margin-right: -20px; /* Increase margin on the right to shift the box slightly left */
+  margin-left: 10px; /* Reduce margin on the left */
+}
+
+#send-button {
+  width: 60px;
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(148deg, rgba(58,178,226,1) 10%, rgba(123,93,217,1) 39%, rgba(161,73,205,1) 67%, rgba(161,110,214,1) 92%);
+  background-size: 400% 400%;
+  animation: gradient-wave 4s ease infinite;
+  cursor: pointer;
+}
+
+/* Spacing between Accept and Decline buttons */
+#accept-button, #decline-button {
+    margin-right: 10px; /* Space between the two buttons */
+}
+
+#decline-button {
+    margin-left: 10px; /* Ensure Decline button also has space */
+}
+
+.accept-button {
+  margin-right: 10px;
 }

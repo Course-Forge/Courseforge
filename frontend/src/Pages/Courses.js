@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
 import ParallaxTilt from 'react-parallax-tilt';
-import 'react-loading-skeleton/dist/skeleton.css'
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+
+
 import './Courses.css';
 
 
@@ -75,12 +75,8 @@ const Courses = () => {
               </ParallaxTilt>  
             ))
           ) : (
-            
-            <SkeletonTheme baseColor="" highlightColor="#444">
-    <p>
-      <Skeleton count={3} />
-    </p>
-  </SkeletonTheme>
+            <></>
+        
           )}
         </div>
       </div>

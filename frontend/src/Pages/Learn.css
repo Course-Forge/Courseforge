@@ -5,7 +5,7 @@
   flex-direction: column;
   width: 80px;
   height: 100vh;
-  background-color: #333;
+  background-color: #000000;
   font-weight: bold;
   transition: width 0.3s ease;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
@@ -134,12 +134,12 @@
 .app {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
-  height: 100vh;
-  background-color: transparent;
+  height: 100;
+  background-color:radial-gradient(circle at center, #0a0c10 20px, #0c1f4d 1000px, #171923 100%);
   position: relative;
-  cursor: url('hammer_black_left_resized.png'), auto; /* Default hammer cursor */
+  cursor: url('hammer_white_left_resized.png'), auto; /* Default hammer cursor */
 }
 
 .app.clicked {
-  cursor: url('hammer_black_left_tilted.png'), auto; /* Hammer cursor on click */
+  cursor: url('hammer_white_left_tilted.png'), auto; /* Hammer cursor on click */
 }

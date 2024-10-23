@@ -4,14 +4,14 @@
 .app {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
-  height: 100vh;
-  background-color: transparent;
+  height: 100%;
+  
   position: relative;
-  cursor: url('/frontend/src/Pages/hammer_black_left_resized.png'), auto; 
+  cursor: url('/frontend/src/Pages/hammer_white_left_resized.png'), auto; 
 }
 
  .app.clicked {
-  cursor: url('/frontend/src/Pages/hammer_black_left_tilted.png'), auto;
+  cursor: url('/frontend/src/Pages/hammer_white_left_tilted.png'), auto;
 }
 .content {
   flex: 1;
@@ -39,7 +39,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(255, 255, 255);
+  
   z-index: 1;
 }
 

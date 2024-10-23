@@ -10,17 +10,17 @@
   transition: width 1s ease;
   z-index: 1030; /* Ensure it's above other elements */
   width: 60px; /* Default width when collapsed */
-  background-color: #333; /* Sidebar container background */
+  background-color: #000000; /* Sidebar container background */
   
   /* Cursor for hammer when hovering over the sidebar */
-  cursor: url('../Pages/hammer_black_left_resized.png'), auto; /* Default hammer cursor on hover */
+  cursor: url('../Pages/hammer_white_left_resized.png'), auto; /* Default hammer cursor on hover */
 }
 
 /* Cursor for hammer when clicked */
 .app.clicked .sidebar-container,
 .app.clicked .burger-menu,
 .app.clicked .menu-item {
-  cursor: url('../Pages/hammer_black_left_tilted.png'), auto; /* Hammer cursor when clicked */
+  cursor: url('../Pages/hammer_white_left_tilted.png'), auto; /* Hammer cursor when clicked */
 }
 
 /* Ensure all sidebar elements use the same cursor */
@@ -37,7 +37,7 @@
 .menu-item:hover,
 .plus-button:hover,
 .profile:hover {
-  cursor: url('../Pages/hammer_black_left_resized.png'), auto; /* Hammer cursor on hover */
+  cursor: url('../Pages/hammer_white_left_resized.png'), auto; /* Hammer cursor on hover */
 }
 
 .sidebar-container.open {
@@ -76,7 +76,7 @@
   top: 0;
   left: -250px; /* Initially hidden */
   transition: left 1s ease; /* Smooth transition for showing/hiding */
-  background-color: #444; /* Sidebar background */
+  background-color: #000000; /* Sidebar background */
   z-index: 1000; /* Ensure it's above content */
 }
 
@@ -159,9 +159,9 @@
   height: 100vh;
   background-color: transparent;
   position: relative;
-  cursor: url('../Pages/hammer_black_left_resized.png'), auto; /* Default hammer cursor */
+  cursor: url('../Pages/hammer_white_left_resized.png'), auto; /* Default hammer cursor */
 }
 
 .app.clicked {
-  cursor: url('../Pages/hammer_black_left_tilted.png'), auto; /* Hammer cursor on click */
+  cursor: url('../Pages/hammer_white_left_tilted.png'), auto; /* Hammer cursor on click */
 }
