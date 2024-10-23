@@ -45,7 +45,7 @@ import Learn from './Pages/Learn';
 import CourseDetail from './components/CourseDetails'; // Import the new detail page
 import NewHome from './Pages/NewHome';
 import Login from './components/Login';
-import test from './components/test';
+import Quiz from './components/quiz';
 
 export default function App() {
   const [isClicked, setIsClicked] = useState(false);
@@ -81,7 +81,7 @@ export default function App() {
             <Route path="/course/:courseId" element={<CourseDetail />} />
             <Route path="/newhome" element={<NewHome />}></Route>
             <Route path="/login" element={<Login />}></Route>
-            <Route path="/test" element={<test />}></Route>
+            <Route path="/quiz" element={<Quiz />}></Route>
           </Routes> 
         </div>
       </div>

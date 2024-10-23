@@ -1,14 +1,26 @@
+html, body {
+  height: 100%;  /* Ensure the body takes up full height of the viewport */
+  margin: 0;
+}
+
 .logincontent {
-  margin-top: 15%;
-  cursor: url('/hammer_black_left_resized.png'), auto; /* Default hammer cursor */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;  /* Move content towards the bottom */
+  align-items: center;  /* Horizontally centers the content */
+  height: 100vh;  /* Full viewport height */
+  cursor: url('/hammer_black_left_resized.png'), auto;
+  padding-bottom: 60px;  /* Adjust this value to move content down or up */
+  margin-top: -45px;
 }
 
 .logincontent.clicked {
-  cursor: url('/hammer_black_left_tilted.png'), auto; /* Tilted hammer cursor when clicked */
+  cursor: url('/hammer_black_left_tilted.png'), auto;
 }
 
 h2, h3 {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 h3 {
@@ -17,17 +29,37 @@ h3 {
 
 input {
   width: 300px;
-  padding: 10px;
-  margin: 0 auto;
+  padding: 12px;
+  margin: 15px auto;
   display: block;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: none;
+  color: white;
+
 }
 
-.loginbutton {
-  width: 250px;
-  padding: 10px;
-  margin: 10px auto;
-  display: block;
-  color: white;
-  border: none;
-  cursor: pointer;
+.button-container {
+  display: flex;
+  justify-content: center;  /* Center the buttons horizontally */
+  margin-top: 20px;
+  gap: 15px;
 }
+
+.button-container .shiny-button {
+  margin: 0 15px; /* Add space between buttons */
+}
+
+.google-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.space {
+  margin-bottom: 20px;
+}
+
+
+

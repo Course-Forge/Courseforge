@@ -12,7 +12,6 @@ const Courses = () => {
   const [courses, setCourses] = useState([]);
   const navigate = useNavigate();
 
-  
   useEffect(() => {
     const db = getDatabase();
     const coursesRef = ref(db, 'courses/');
@@ -52,9 +51,17 @@ const Courses = () => {
     }
   };
 
+  // Function to generate or use a brief summary for display
+  const getCourseSummary = (course) => {
+    if (course.summary) {
+      return course.summary;
+    }
+    return course.courseName ? course.courseName.split(' ').slice(0, 3).join(' ') + '...' : 'Loading...';
+  };
+
   return (
     <div className="App">
-      <div className="starfield"></div> 
+      <div className="starfield"></div>
       <div className="main-content">
         <header className="App-header">
           <h1 className="gradient-text">My Courses</h1>
@@ -63,20 +70,18 @@ const Courses = () => {
         <div className="course-buttons">
           {courses.length > 0 ? (
             courses.map((course, index) => (
-              <ParallaxTilt>
-              <button 
-                key={course.id} 
-                onClick={() => handleCourseClick(course.id)} 
-                className="course-btn">
-                <h3 className="course-title">Course {index + 1}</h3> {/* Title Above Course */}
-                <h2>{course.courseName}</h2>
-                <p>{course.description}</p>
-              </button>
-              </ParallaxTilt>  
+              <ParallaxTilt key={course.id}> {/* Assuming you have ParallaxTilt component */}
+                <button 
+                  onClick={() => handleCourseClick(course.id)} 
+                  className="course-btn">
+                  <h3 className="course-title">Course {index + 1}</h3> {/* Title Above Course */}
+                  <h2>{course.courseName}</h2>
+                  <p>{course.description}</p> {/* Short description */}
+                </button>
+              </ParallaxTilt>
             ))
           ) : (
-            <></>
-        
+            <p>Loading courses...</p>
           )}
         </div>
       </div>

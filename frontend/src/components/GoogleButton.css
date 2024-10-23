@@ -1,0 +1,47 @@
+.google-auth-button {
+    padding: 12px 30px; /* Padding around the button */
+    border-radius: 30px; /* Rounded corners */
+    background: linear-gradient(148deg, rgba(58, 178, 226, 1) 10%, rgba(123, 93, 217, 1) 39%, rgba(161, 73, 205, 1) 67%, rgba(161, 110, 214, 1) 92%);
+    background-size: 400% 400%; /* Set background size for animation */
+    animation: gradient-wave 4s ease infinite; /* Add gradient animation */
+    color: white; /* Text color */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    font-size: 1rem; /* Font size */
+    transition: transform 0.3s ease; /* Transition effect for scaling */
+    margin-top: 20px; /* Add margin-top to move the button down */
+}
+
+/* Flex container for button contents */
+.google-button {
+    display: flex; /* Flexbox for contents */
+    align-items: center; /* Center items vertically */
+}
+
+/* Logo styling */
+.google-logo {
+    width: 20px; /* Logo width */
+    height: 20px; /* Logo height */
+    margin-left: 8px; /* Space between text and logo */
+}
+
+/* Hover effect */
+.google-auth-button:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+/* Keyframes for the gradient animation */
+@keyframes gradient-wave {
+    0% {
+        background-position: 0% 50%; /* Start position */
+    }
+    50% {
+        background-position: 100% 50%; /* Mid position */
+    }
+    100% {
+        background-position: 0% 50%; /* End position */
+    }
+}

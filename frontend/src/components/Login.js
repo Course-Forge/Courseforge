@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { auth } from '../services/firebase'; 
 import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import './Login.css';
+import ShinyButton from './ShinyButton';  // Import the new shiny button
+import GoogleButton from './GoogleButton'; // Import the Google button
+import './Login.css';  // Make sure your .button-secondary class is in this file
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -16,7 +18,7 @@ const Login = () => {
       console.log(result.user);
     } catch (error) {
       console.error(error);
-      setError(error.message);
+      setError("Error during Google sign-in. Please try again.");
     }
   };
 
@@ -28,7 +30,7 @@ const Login = () => {
       setPassword('');
     } catch (error) {
       console.error(error);
-      setError(error.message);
+      setError("Incorrect login credentials. Please try again.");
     }
   };
 
@@ -40,7 +42,12 @@ const Login = () => {
       setPassword('');
     } catch (error) {
       console.error(error);
-      setError(error.message);
+      // Check the error code and set a custom message
+      if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
+        setError("Incorrect login credentials. Please try again."); // Custom error message
+      } else {
+        setError("Incorrect login credentials. Please try again.");
+      }
     }
   };
 
@@ -53,8 +60,8 @@ const Login = () => {
 
   return (
     <div className={`logincontent ${isClicked ? 'clicked' : ''}`} onClick={handleClick}>
-      <h2>Login</h2>
-      <h3>Or Sign in with Email and Password</h3>
+      <h2>Login/Sign up</h2>
+      <h3>Or sign in with Google</h3>
 
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
@@ -74,10 +81,16 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)} 
         />
       </div>
-      <div className='loginbutton'>
-        <button onClick={handleEmailSignUp}>Sign Up</button>
-        <button onClick={handleEmailLogin}>Login</button>
-        <button onClick={handleGoogleLogin}>Sign in with Google</button>
+
+      {/* Buttons Container */}
+      <div className="button-container">
+        <ShinyButton label="Sign Up" onClick={handleEmailSignUp} className="button-secondary" />
+        <ShinyButton label="Login" onClick={handleEmailLogin} className="button-secondary" />
+      </div>
+
+      {/* Google Sign In Button */}
+      <div className="loginbutton google-button">
+        <GoogleButton onClick={handleGoogleLogin} /> {/* Ensure GoogleButton accepts onClick prop */}
       </div>
     </div>
   );

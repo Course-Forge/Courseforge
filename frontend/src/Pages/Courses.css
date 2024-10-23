@@ -84,7 +84,7 @@
 /* Individual course card button */
 .course-btn {
   position: relative; /* Position for pseudo-element */
-  background-color: #ffffff; /* Background color for the button */
+  background-color: #000000; /* Background color for the button */
   border-radius: 4px;
   width: 50%; /* Set width */
   height: 200px; /* Set height */
@@ -111,19 +111,19 @@
 .course-title {
   font-size: 1.2rem; /* Increased font size */
   font-weight: bold; /* Bold title */
-  color: #333; /* Standard color */
+  color: #ffffff; /* Standard color */
   margin-bottom: 5px; /* Space below the title */
   text-align: center; /* Center align titles */
 }
 
 .course-btn h2 {
   font-size: 1rem; /* Standard font size */
-  color: #333;
+  color: #ffffff;
   margin-bottom: 5px; /* Reduced margin */
 }
 
 .course-btn p {
-  color: #777;
+  color: #ffffff;
   font-size: 0.8rem; /* Smaller font size */
 }
 .App-header{

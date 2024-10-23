@@ -63,6 +63,9 @@ const Sidebar = () => {
             <a href='/Courses' className='menu-item'>
               <i className="icon-theme"></i> {isOpen && <span>Courses</span>}
             </a>
+            <a href='/Quiz' className='menu-item'>
+              <i className="icon-theme"></i> {isOpen && <span>Quiz</span>}
+            </a>
           </div>
           {isOpen && (
             <div className="profile">

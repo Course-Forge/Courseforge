@@ -160,5 +160,5 @@
 }
 
 .app.clicked {
-  cursor: url('hammer_white_left_tilted.png'), auto; /* Hammer cursor on click */
+  cursor: url('hammer_white_left_tilted.png'), auto; /* Change cursor to tilted hammer on click */
 }
