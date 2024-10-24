@@ -136,7 +136,7 @@ const Quiz = () => {
     <div className="quiz-container">
       <div className="quiz-header">
         {/* Stepper Progress Bar */}
-        <ProgressBar percent={progressPercentage} filledBackground="linear-gradient(to right, #f093fb, #f5576c)">
+        <ProgressBar percent={progressPercentage} filledBackground="linear-gradient(to right, #10CFD9, #0E1A9F)">
           {quizQuestions.map((_, index) => (
             <Step key={index}>
               {({ accomplished }) => (

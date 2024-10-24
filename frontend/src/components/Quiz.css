@@ -26,7 +26,7 @@
   }
   
   .step-circle.accomplished {
-    background-color: #763fb1;
+    background: radial-gradient(circle at top, #15a1ff 20px, #1a4099 1000px, #071638 100%);
 
   }
   
@@ -45,14 +45,14 @@
   
   .option-label {
     margin-bottom: 10px;
-    background-color: #763fb1;
+    background-color: #000000;
     padding: 10px;
     border-radius: 6px;
     transition: background-color 0.3s ease;
   }
   
   .option-label:hover {
-    background-color: #763fb1;
+    background: radial-gradient(circle at top, #0a0c10 20px, #0c1f4d 1000px, #171923 100%);
 
   }
   
@@ -67,17 +67,14 @@
   
   button {
     padding: 10px 20px;
-    background-color: #763fb1;
-
+    background-color: #000000;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
   }
   
-  button:hover {
-    background-color: #f5576c;
-  }
+  
   
   .review-section {
     padding: 20px;

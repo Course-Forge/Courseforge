@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isClicked, setIsClicked] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(''); // New state for success message
 
   const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();
@@ -26,11 +27,13 @@ const Login = () => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       console.log('User signed up:', userCredential.user);
-      setEmail('');
+      setEmail('');  // Clear input fields after success
       setPassword('');
+      setError(''); // Clear any previous errors
+      setSuccessMessage(`Sign up successful! Welcome ${userCredential.user.email}!`);  // Set success message
     } catch (error) {
       console.error(error);
-      setError("Incorrect login credentials. Please try again.");
+      setError("Sign-up failed. Please try again.");
     }
   };
 
@@ -38,15 +41,16 @@ const Login = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log('User logged in:', userCredential.user);
-      setEmail('');
+      setEmail('');  // Clear input fields after success
       setPassword('');
+      setError(''); // Clear any previous errors
+      setSuccessMessage(`Login successful! Hello ${userCredential.user.email}!`);  // Set success message
     } catch (error) {
       console.error(error);
-      // Check the error code and set a custom message
       if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
         setError("Incorrect login credentials. Please try again."); // Custom error message
       } else {
-        setError("Incorrect login credentials. Please try again.");
+        setError("Login failed. Please try again.");
       }
     }
   };
@@ -61,7 +65,13 @@ const Login = () => {
   return (
     <div className={`logincontent ${isClicked ? 'clicked' : ''}`} onClick={handleClick}>
       <h2>Login/Sign up</h2>
-      <h3>Or sign in with Google</h3>
+
+      {/* Conditionally render success message or the default heading */}
+      {successMessage ? (
+        <h3>{successMessage}</h3>  // Show success message after login/sign-up
+      ) : (
+        <h3>Or sign in with Google</h3>  // Default message
+      )}
 
       {error && <p style={{ color: 'red' }}>{error}</p>}
 

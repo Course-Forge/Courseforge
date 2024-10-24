@@ -1,0 +1,103 @@
+/* General styles for the accordion */
+.accordion {
+    border: none;
+    border-radius: 8px;
+    width: 100%; /* Increased width */
+    max-width: 1200px; /* Max width adjusted */
+    margin: 40px auto;
+    margin-top: 20%; /* Centered with more space */
+    margin-left: 10%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+    height: 10%0;
+}
+
+/* Accordion item styles */
+.accordion-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Accordion header styles */
+.accordion-header {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px; /* Increased padding */
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Button styles for accordion */
+.accordion-button {
+    background: none;
+    border: none;
+    font-size: 20px; /* Increased font size */
+    text-align: left;
+    color: #ffffff;
+    width: 100%;
+}
+
+/* Panel styles */
+.accordion-panel {
+    padding: 20px; /* Increased padding */
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+
+/* Styles for navigation arrows */
+.arrow {
+    cursor: pointer;
+    font-size: 30px; /* Increased font size */
+    color: #4CAF50; /* Green color */
+    margin: 0 15px; /* Increased margin */
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for arrows */
+.arrow:hover {
+    color: #45a049;
+}
+
+/* Animation for content appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Centering the main content */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    padding: 20px;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .pagination li {
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .pagination .active {
+    font-weight: bold;
+    color: blue;
+  }
+  

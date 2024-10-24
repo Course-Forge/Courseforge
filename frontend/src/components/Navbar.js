@@ -66,14 +66,15 @@ const Sidebar = () => {
             <a href='/Quiz' className='menu-item'>
               <i className="icon-theme"></i> {isOpen && <span>Quiz</span>}
             </a>
+            <a href='/Accordian' className='menu-item'>
+              <i className="icon-theme"></i> {isOpen && <span>Accordian</span>}
+            </a>
           </div>
           {isOpen && (
             <div className="profile">
-              <button>
-                <a href='./Login' className='profile'>
-                  {isOpen && <span>Sign In</span>}
-                </a>
-              </button>
+              <a href='./Login' className='profile-link'>
+                {isOpen && <span>🪪 Sign In</span>}
+              </a>
             </div>
           )}
         </div>

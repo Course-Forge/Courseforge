@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './NewHome.css';
+import { Link } from 'react-router-dom';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -71,9 +72,9 @@ function App() {
           For any personal or business inquiries, please contact us at "courseforgeaigen@gmail.com".
         </p>
         <div className="hero-buttons">
-          <button className="button-secondary">Contact us ↗</button>
-          <button className="button-primary">YouTube ↗</button>
-          <button className="button-secondary">GitHub ↗</button>
+      <button className="button-secondary">Contact us ↗</button>
+        <Link to="https://www.youtube.com/@CourseForgeAI" ><button className="button-primary">YouTube ↗</button></Link>
+        <Link to="https://github.com/Course-Forge/Courseforge" ><button className="button-secondary">GitHub ↗</button></Link>
         </div>
       </main>
     </div>

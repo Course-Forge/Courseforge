@@ -7,7 +7,7 @@
   position: relative;
   overflow: hidden;
   margin-left: -13%;
-  margin-top: 10.25%;
+  margin-top: 15%;
   
 }
 
@@ -18,8 +18,6 @@
   left: 0;
   width: 100%;
   height: 100%; /* Ensure the starfield covers exactly the viewport */
-  background: radial-gradient(circle at center, #0a0c10 20px, #0c1f4d 1000px, #171923 100%);
-  
   z-index: 0; /* Behind all other content */
 }
 

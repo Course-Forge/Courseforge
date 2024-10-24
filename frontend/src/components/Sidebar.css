@@ -1,47 +1,41 @@
 .sidebar-container {
-  position: sticky; /* Sidebar stays fixed on the screen */
+  position: sticky;
   top: 0;
   left: 0;
-  height: 100vh; /* Corrected to full height of the viewport */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
   transition: width 1s ease;
-  z-index: 1030; /* Ensure it's above other elements */
-  width: 60px; /* Default width when collapsed */
-  background-color: #000000; /* Sidebar container background */
-  
-  /* Cursor for hammer when hovering over the sidebar */
-  cursor: url('../Pages/hammer_white_left_resized.png'), auto; /* Default hammer cursor on hover */
+  z-index: 1030;
+  width: 60px;
+  background-color: #000000;
+  cursor: url('../Pages/hammer_white_left_resized.png'), auto;
 }
 
-/* Cursor for hammer when clicked */
 .app.clicked .sidebar-container,
 .app.clicked .burger-menu,
 .app.clicked .menu-item {
-  cursor: url('../Pages/hammer_white_left_tilted.png'), auto; /* Hammer cursor when clicked */
+  cursor: url('../Pages/hammer_white_left_tilted.png'), auto;
 }
 
-/* Ensure all sidebar elements use the same cursor */
 .sidebar-header,
 .menu-item,
 .burger-menu,
 .plus-button,
 .profile {
-  cursor: inherit; /* Inherit the hammer cursor from parent */
+  cursor: inherit;
 }
 
-/* Hover effect for buttons (burger menu and menu items) */
 .burger-menu:hover,
 .menu-item:hover,
 .plus-button:hover,
 .profile:hover {
-  cursor: url('../Pages/hammer_white_left_resized.png'), auto; /* Hammer cursor on hover */
+  cursor: url('../Pages/hammer_white_left_resized.png'), auto;
 }
 
 .sidebar-container.open {
-  width: 250px; /* Expand width when open */
+  width: 250px;
 }
 
 .burger-menu {
@@ -69,19 +63,19 @@
 }
 
 .sidebar {
-  position: sticky; /* Sidebar stays fixed in place */
+  position: sticky;
   height: 100vh;
-  width: 250px; /* Full width when open */
+  width: 250px;
   color: white;
   top: 0;
-  left: -250px; /* Initially hidden */
-  transition: left 1s ease; /* Smooth transition for showing/hiding */
-  background-color: #000000; /* Sidebar background */
-  z-index: 1000; /* Ensure it's above content */
+  left: -250px;
+  transition: left 1s ease;
+  background-color: #000000;
+  z-index: 1000;
 }
 
 .sidebar.open {
-  left: 0; /* Show the sidebar when it's open */
+  left: 0;
 }
 
 .close-menu {
@@ -106,14 +100,13 @@
   color: white;
   display: block;
   position: relative;
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+  transition: color 0.3s ease;
 }
 
 .menu-item:hover {
-  color: #fff; /* Ensure text remains white on hover */
+  color: #fff;
 }
 
-/* Add white underline on hover */
 .menu-item::after {
   content: '';
   position: absolute;
@@ -122,21 +115,39 @@
   width: 0%;
   height: 2px;
   background-color: white;
-  transition: width 0.3s ease; /* Smooth transition for the underline */
+  transition: width 0.3s ease;
 }
 
 .menu-item:hover::after {
-  width: 100%; /* Expand underline to full width on hover */
+  width: 100%;
 }
 
 .profile {
-  color: black;
-  bottom: 20px;
+  color: white;
+  background-color: #333;
+  position: relative; /* You can use 'relative' to adjust its position */
+  bottom: 15px; /* Moves the button 40px up */
   margin-left: 10%;
   width: 80%;
   text-align: center;
-  padding: 5%;
+  padding: 10px 0;
   border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.profile:hover {
+  background-color: #444;
+  color: #f0f0f0;
+}
+
+
+.profile-link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  display: block;
+  padding: 0px 0;
 }
 
 .collapsed-profile {
@@ -152,16 +163,15 @@
   height: 40px;
 }
 
-/* App styling for the hammer cursor */
 .app {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   height: 100vh;
   background-color: transparent;
   position: relative;
-  cursor: url('../Pages/hammer_white_left_resized.png'), auto; /* Default hammer cursor */
+  cursor: url('../Pages/hammer_white_left_resized.png'), auto;
 }
 
 .app.clicked {
-  cursor: url('../Pages/hammer_white_left_tilted.png'), auto; /* Hammer cursor on click */
+  cursor: url('../Pages/hammer_white_left_tilted.png'), auto;
 }

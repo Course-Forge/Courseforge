@@ -46,6 +46,7 @@ import CourseDetail from './components/CourseDetails'; // Import the new detail 
 import NewHome from './Pages/NewHome';
 import Login from './components/Login';
 import Quiz from './components/quiz';
+import Accordian from './components/accordian';
 
 export default function App() {
   const [isClicked, setIsClicked] = useState(false);
@@ -82,6 +83,7 @@ export default function App() {
             <Route path="/newhome" element={<NewHome />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/quiz" element={<Quiz />}></Route>
+            <Route path="/accordian" element={<Accordian/>}></Route>
           </Routes> 
         </div>
       </div>

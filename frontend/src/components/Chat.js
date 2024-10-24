@@ -14,6 +14,7 @@ const Chat = () => {
   const [greeting, setGreeting] = useState('');  // Typing effect for course suggestion
   const [cursorVisible, setCursorVisible] = useState(true);  // Blinking cursor effect
   const hasInitialized = useRef(false);
+  const typingIntervalRef = useRef(null); // Store typing interval reference
   const message = 'Do you want to accept this course suggestion?';  // Typing message
   
   useEffect(() => {
@@ -40,18 +41,20 @@ const Chat = () => {
   // Typing effect for course suggestion
   useEffect(() => {
     if (courseSuggestion) {
+      clearTypingEffect(); // Clear any previous typing effect
+      setGreeting(''); // Reset the greeting text
       let index = 0;
-      const typingInterval = setInterval(() => {
+      typingIntervalRef.current = setInterval(() => {
         if (index < message.length) {
           setGreeting((prev) => prev + message.charAt(index));
           index++;
         } else {
-          clearInterval(typingInterval);
+          clearTypingEffect(); // Clear interval once message is typed out
         }
-      }, 100); // Adjust typing speed here (milliseconds)
-
-      return () => clearInterval(typingInterval);
+      }, 50); // Adjust typing speed here (milliseconds)
     }
+
+    return () => clearTypingEffect(); // Cleanup effect on component unmount or suggestion change
   }, [courseSuggestion]);
 
   // Cursor blinking effect
@@ -62,6 +65,13 @@ const Chat = () => {
 
     return () => clearInterval(cursorInterval);
   }, []);
+
+  const clearTypingEffect = () => {
+    if (typingIntervalRef.current) {
+      clearInterval(typingIntervalRef.current); // Stop the current typing interval
+      typingIntervalRef.current = null; // Reset the reference
+    }
+  };
 
   const formatMessage = (text) => {
     // Format text for the chat interface (headings, bold, italics)
@@ -126,6 +136,7 @@ const Chat = () => {
 
   const handleDeclineCourse = () => {
     addMessage('Course declined. Please enter a new course.', 'gpt');
+    clearTypingEffect(); // Clear typing effect if user declines the course
     setCourseSuggestion(null);
     setUserInput('');
   };
