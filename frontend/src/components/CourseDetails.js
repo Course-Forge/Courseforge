@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getDatabase, ref, get } from 'firebase/database';
 import { useParams } from 'react-router-dom';
+import  Accordian  from './accordian.js';
 import './CourseDetails.css';
 
 const CourseDetails = () => {
@@ -72,10 +73,8 @@ const CourseDetails = () => {
           
 
           {/* Apply formatting to course length */}
-          
+          <Accordian></Accordian>
 
-          {/* Day-by-Day Breakdown */}
-          <h2>Day-by-Day Breakdown</h2>
 
           {courseData.days && Object.keys(courseData.days).map((dayKey, index) => (
             <div key={index} className="day-section">
@@ -95,7 +94,7 @@ const CourseDetails = () => {
 
                   {/* Format resources */}
                   <div dangerouslySetInnerHTML={{ __html: formatMessage(courseData.days[dayKey].resources) }} />
-
+                  <Accordian></Accordian>
                   {expandedDay < Object.keys(courseData.days).length - 1 && (
                     <button className="next-day-btn" onClick={handleNextDay}>
                       Next: Day {expandedDay + 2} →

@@ -5,12 +5,11 @@
     width: 100%; /* Increased width */
     max-width: 1200px; /* Max width adjusted */
     margin: 40px auto;
-    margin-top: 20%; /* Centered with more space */
-    margin-left: 10%;
+    
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
-    height: 10%0;
+    height: 10%;
 }
 
 /* Accordion item styles */
@@ -30,12 +29,12 @@
 }
 
 .accordion-header:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(129, 205, 255, 0.2);
 }
 
 /* Button styles for accordion */
 .accordion-button {
-    background: none;
+    background: black;
     border: none;
     font-size: 20px; /* Increased font size */
     text-align: left;
@@ -46,7 +45,7 @@
 /* Panel styles */
 .accordion-panel {
     padding: 20px; /* Increased padding */
-    background-color: #2a2a2a;
+    background-color: #000000;
     color: #e0e0e0;
 }
 
@@ -88,7 +87,7 @@
     display: flex;
     justify-content: center;
     list-style: none;
-    padding: 0;
+    padding: 25px;
   }
   
   .pagination li {
@@ -98,6 +97,6 @@
   
   .pagination .active {
     font-weight: bold;
-    color: blue;
+    color: rgb(0, 225, 255);
   }
   

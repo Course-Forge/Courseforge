@@ -1,7 +1,4 @@
-html, body {
-  height: 100%;  /* Ensure the body takes up full height of the viewport */
-  margin: 0;
-}
+
 
 .logincontent {
   display: flex;
@@ -11,20 +8,23 @@ html, body {
   height: 100vh;  /* Full viewport height */
   cursor: url('/hammer_black_left_resized.png'), auto;
   padding-bottom: 60px;  /* Adjust this value to move content down or up */
-  margin-top: -45px;
+  margin-top: -5%;
+  margin-left: 0%;
+  color: white;
 }
 
 .logincontent.clicked {
   cursor: url('/hammer_black_left_tilted.png'), auto;
 }
 
-h2, h3 {
+.white, .white2 {
   text-align: center;
   margin-bottom: 20px;
+  color: white;
 }
-
-h3 {
+.white2 {
   margin: 20px 0;
+  color: white;
 }
 
 input {
@@ -60,6 +60,3 @@ input {
 .space {
   margin-bottom: 20px;
 }
-
-
-

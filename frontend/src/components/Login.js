@@ -68,12 +68,12 @@ const Login = () => {
 
       {/* Conditionally render success message or the default heading */}
       {successMessage ? (
-        <h3>{successMessage}</h3>  // Show success message after login/sign-up
+        <h3 className="success-message">{successMessage}</h3>  // Show success message in white
       ) : (
         <h3>Or sign in with Google</h3>  // Default message
       )}
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
 
       <div>
         <input 

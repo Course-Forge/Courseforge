@@ -47,6 +47,7 @@ import NewHome from './Pages/NewHome';
 import Login from './components/Login';
 import Quiz from './components/quiz';
 import Accordian from './components/accordian';
+// import NewLogin from './components/NewLogin';
 
 export default function App() {
   const [isClicked, setIsClicked] = useState(false);
