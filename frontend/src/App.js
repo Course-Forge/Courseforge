@@ -70,6 +70,7 @@ export default function App() {
     };
   }, []);
 
+
   return (
     <Router>
       <div className={`app-container ${isClicked ? 'clicked' : ''}`}>

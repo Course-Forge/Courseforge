@@ -24,11 +24,14 @@ from django.db import models
 
 class ChatMessage(models.Model):
     user_message = models.TextField()
-    bot_text = models.TextField()
+    summary_text = models.TextField()  # Add this field
+    lectures_text = models.TextField()  # Add this field
+    assignments_text = models.TextField()  # Add this field
+    quizzes_text = models.TextField()  # Add this field
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"User: {self.user_message[:50]} - Bot: {self.bot_text[:50]}"
+        return f"User: {self.user_message[:50]} - Summary: {self.summary_text[:50]} - Lectures:{self.lectures_text[:100]} - Assignments:{self.lectures_text[:100]} - Quizzes:{self.quizzes_text[:100]}"
 
     class Meta:
         ordering = ['-timestamp']  # Orders messages by timestamp, newest first

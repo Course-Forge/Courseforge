@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from courses.views import chatbot_response;
+from django.urls import path
+# from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('api/courseforge/', course_chat, name='course_chat')
     path('api/chatbot/', chatbot_response, name='chatbot_response')
+    # path("fetch_videos/", views.fetch_videos, name="fetch_videos"),
 ]
 # router = DefaultRouter()
 # router.register(r'courses', CourseViewSet.as_view)

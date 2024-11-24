@@ -21,6 +21,8 @@ import os
 GEMINI_API_KEY = os.environ['gemini_api_key']
 # GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
+YOUTUBE_API_KEY = os.environ.get("youtube_api_key")
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 

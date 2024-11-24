@@ -64,13 +64,13 @@ const Login = () => {
 
   return (
     <div className={`logincontent ${isClicked ? 'clicked' : ''}`} onClick={handleClick}>
-      <h2>Login/Sign up</h2>
+      <h2 className='white'>Login/Sign up</h2>
 
       {/* Conditionally render success message or the default heading */}
       {successMessage ? (
         <h3 className="success-message">{successMessage}</h3>  // Show success message in white
       ) : (
-        <h3>Or sign in with Google</h3>  // Default message
+        <h3 className='white2'>Or sign in with Google</h3>  // Default message
       )}
 
       {error && <p className="error-message">{error}</p>}
