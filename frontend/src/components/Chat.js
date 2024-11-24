@@ -423,6 +423,7 @@ import { getDatabase, ref, set } from "firebase/database"; // Firebase setup
 import "./Chat.css";
 import { db } from "../services/firebase"; // Import the initialized Firebase config
 import loadingGif from "../assets/cfloadinggif.gif"; // Loading GIF
+import { IoIosSend } from "react-icons/io";
 
 const Chat = () => {
   const [conversation, setConversation] = useState([]);
@@ -579,10 +580,10 @@ const Chat = () => {
           </div>
         )}
       </div>
-
+<div>
       {courseData && (
         <div className="course-suggestion">
-          <h3>Do you want to accept this course suggestion?</h3>
+          <h3  className="courseaccept">Do you want to accept this course suggestion?</h3>
           <button className="accept-button" onClick={handleAcceptCourse}>
             Accept
           </button>
@@ -591,7 +592,7 @@ const Chat = () => {
           </button>
         </div>
       )}
-
+</div>
       {videoRecommendations.length > 0 && (
         <div className="video-recommendations">
           <h3>Recommended Videos</h3>
@@ -620,7 +621,8 @@ const Chat = () => {
         onKeyPress={handleKeyPress}
       />
       <button className="send-button" onClick={sendMessage}>
-        Send ✈️
+        Send <IoIosSend />
+
       </button>
       <p className="disclaimer">CourseForge can make mistakes. Check important info.</p>
     </div>

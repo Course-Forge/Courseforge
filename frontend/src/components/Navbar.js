@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Sidebar.css';
+import { IoIosLogIn } from "react-icons/io";
+
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,7 +70,7 @@ const Sidebar = () => {
           {isOpen && (
             <div className="profile">
               <a href='./Login' className='profile-link'>
-                {isOpen && <span>🪪 Sign In</span>}
+                {isOpen && <span><IoIosLogIn />   Sign In</span>}
               </a>
             </div>
           )}

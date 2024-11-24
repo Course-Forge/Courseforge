@@ -1,106 +1,73 @@
-import React, { useState } from 'react';
-import { auth } from '../services/firebase'; 
-import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import ShinyButton from './ShinyButton';  // Import the new shiny button
-import GoogleButton from './GoogleButton'; // Import the Google button
-import './NewLogin.css';  // Make sure your .button-secondary class is in this file
+import React, { useState } from "react";
+import { auth } from "../services/firebase";
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
+import "./NewLogin.css";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [isClicked, setIsClicked] = useState(false);
-  const [successMessage, setSuccessMessage] = useState(''); // New state for success message
-
-  const handleGoogleLogin = async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-      const result = await signInWithPopup(auth, provider);
-      console.log(result.user);
-    } catch (error) {
-      console.error(error);
-      setError("Error during Google sign-in. Please try again.");
-    }
-  };
+  const [email, setEmail] = useState("");
 
   const handleEmailSignUp = async () => {
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      console.log('User signed up:', userCredential.user);
-      setEmail('');  // Clear input fields after success
-      setPassword('');
-      setError(''); // Clear any previous errors
-      setSuccessMessage(`Sign up successful! Welcome ${userCredential.user.email}!`);  // Set success message
+      await createUserWithEmailAndPassword(auth, email, "defaultpassword");
+      alert("Sign up successful!");
     } catch (error) {
-      console.error(error);
-      setError("Sign-up failed. Please try again.");
+      alert("Error signing up. Please try again.");
     }
   };
 
-  const handleEmailLogin = async () => {
+  const handleGoogleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      console.log('User logged in:', userCredential.user);
-      setEmail('');  // Clear input fields after success
-      setPassword('');
-      setError(''); // Clear any previous errors
-      setSuccessMessage(`Login successful! Hello ${userCredential.user.email}!`);  // Set success message
+      await signInWithPopup(auth, provider);
+      alert("Google Sign-In successful!");
     } catch (error) {
-      console.error(error);
-      if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
-        setError("Incorrect login credentials. Please try again."); // Custom error message
-      } else {
-        setError("Login failed. Please try again.");
-      }
+      alert("Error signing in with Google. Please try again.");
     }
-  };
-
-  const handleClick = () => {
-    setIsClicked(true);
-    setTimeout(() => {
-      setIsClicked(false);
-    }, 200);
   };
 
   return (
-    <div className={`logincontent ${isClicked ? 'clicked' : ''}`} onClick={handleClick}>
-      <h2>Login/Sign up</h2>
+    <div className="login-page">
+      {/* Left Side */}
+      <div className="left-panel">
+        <div className="branding">
+          <span className="logo">⌘</span>
+          <h1>Acme Inc</h1>
+        </div>
+        <div className="testimonial">
+          <p>
+            "This library has saved me countless hours of work and helped me
+            deliver stunning designs to my clients faster than ever before."
+          </p>
+          <p className="author">Sofia Davis</p>
+        </div>
+      </div>
 
-      {/* Conditionally render success message or the default heading */}
-      {successMessage ? (
-        <h3>{successMessage}</h3>  // Show success message after login/sign-up
-      ) : (
-        <h3>Or sign in with Google</h3>  // Default message
-      )}
-
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-
-      <div>
-        <input 
-          type="email" 
-          placeholder="Email" 
-          value={email} 
-          onChange={(e) => setEmail(e.target.value)} 
+      {/* Right Side */}
+      <div className="right-panel">
+        <h2>Create an account</h2>
+        <p>Enter your email below to create your account</p>
+        <input
+          type="email"
+          placeholder="name@example.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-      </div>
-      <div>
-        <input 
-          type="password" 
-          placeholder="Password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-        />
-      </div>
-
-      {/* Buttons Container */}
-      <div className="button-container">
-        <ShinyButton label="Sign Up" onClick={handleEmailSignUp} className="button-secondary" />
-        <ShinyButton label="Login" onClick={handleEmailLogin} className="button-secondary" />
-      </div>
-
-      {/* Google Sign In Button */}
-      <div className="loginbutton google-button">
-        <GoogleButton onClick={handleGoogleLogin} /> {/* Ensure GoogleButton accepts onClick prop */}
+        <button className="primary-button" onClick={handleEmailSignUp}>
+          Sign In with Email
+        </button>
+        <div className="divider">OR CONTINUE WITH</div>
+        <button className="github-button" onClick={handleGoogleSignIn}>
+          <span>GitHub</span>
+        </button>
+        <p className="terms">
+          By clicking continue, you agree to our{" "}
+          <a href="/terms">Terms of Service</a> and{" "}
+          <a href="/privacy">Privacy Policy</a>.
+        </p>
       </div>
     </div>
   );

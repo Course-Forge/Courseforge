@@ -177,11 +177,13 @@ def chatbot_response(request):
             user_message = data.get('user_message', '')
 
             # Define number of days for the course (can be dynamic)
-            course_duration = 5
+            coursedur_prompt = f"ONLY output the number of days this course: {user_message} will take to complete. Only output the integer value. Example: 5"
+            coursedur_gen = model.generate_content(coursedur_prompt).text
+            course_duration = int(coursedur_gen)
             
-            summary_prompt = f"Generate a detailed course plan for the following topic: {user_message}. Provide the following details: \
-                 1. A general summary of the course. Mention what the course will cover generally. (should be quite short in about 4-5 organized sentences.)\
-                 2. Also directly state what the course duration is: Example: Course Duration(in days): 5"
+            summary_prompt = f"Generate a quick and small summary of this course: {user_message}. Provide the following details: \
+                 1. A general summary of the course. Mention what the course will cover generally. (should be quite short in about 4-5 organized sentences. Should be short and no more than this.)\
+                 2. Then say the course duration based on {coursedur_gen}. Make sure that the 'Course Duration' is bolded. Example: Course Duration: {coursedur_gen}"
             summary_text = model.generate_content(summary_prompt).text
 
             # Generate course content for each day
@@ -192,7 +194,7 @@ def chatbot_response(request):
 
             for day in range(1, course_duration + 1):
                 lectures_prompt = f"Generate a detailed lecture for Day {day} of a {course_duration}-day course on {user_message}."
-                assignments_prompt = f"Generate an assignment for Day {day} of the course on {user_message}."
+                assignments_prompt = f"Generate an assignment for Day {day} of the course on {user_message}. The assignment should be short and something that can be answered with a text input box. "
                 quizzes_prompt = f"Create quizzes for Day {day} for the course topic: {user_message}. Include a brief title and a summary of questions covered in each quiz."
 
                 # AI Model call to generate content

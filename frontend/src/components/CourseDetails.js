@@ -115,8 +115,24 @@
 import React, { useEffect, useState } from 'react';
 import { getDatabase, ref, get } from 'firebase/database';
 import { useParams } from 'react-router-dom';
-import AccordionContent from './accordian.js'; // Corrected file name to match component
+import AccordionContent from './accordian.js'; // Ensure correct import path
 import './CourseDetails.css';
+
+const formatMessage = (text) => {
+  return text
+    .replace(/######\s(.+)/g, "<h6>$1</h6>")
+    .replace(/#####\s(.+)/g, "<h5>$1</h5>")
+    .replace(/####\s(.+)/g, "<h4>$1</h4>")
+    .replace(/###\s(.+)/g, "<h3>$1</h3>")
+    .replace(/##\s(.+)/g, "<h2>$1</h2>")
+    .replace(/#\s(.+)/g, "<h1>$1</h1>")
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.+?)\*/g, "<em>$1</em>")
+    .replace(/\*\s(.+)/g, "&nbsp;&nbsp;&nbsp;&nbsp;• $1")
+    .replace(/•\s*/g, "<br />&nbsp;&nbsp;&nbsp;&nbsp;• ")
+    .replace(/<br \/>+/g, "<br />")
+    .replace(/(<strong>.+<\/strong><br \/>)/g, "$1<br />");
+};
 
 const CourseDetails = () => {
   const { courseId } = useParams();
@@ -138,7 +154,7 @@ const CourseDetails = () => {
           setError('No course data available.');
         }
       } catch (err) {
-        console.error("Error fetching course data:", err);
+        console.error('Error fetching course data:', err);
         setError('Failed to fetch course data.');
       } finally {
         setLoading(false);
@@ -162,7 +178,11 @@ const CourseDetails = () => {
 
   return (
     <div className="course-details-container">
-      <div dangerouslySetInnerHTML={{ __html: `# Course Overview: ${courseData.courseName}` }} />
+      <div
+        dangerouslySetInnerHTML={{
+          __html: formatMessage(`# Course Overview: ${courseData.courseName}`),
+        }}
+      />
       <AccordionContent courseData={courseData} />
     </div>
   );

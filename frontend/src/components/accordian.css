@@ -1,15 +1,12 @@
 /* General styles for the accordion */
 .accordion {
-    border: none;
+    border: 1px solid #333;
     border-radius: 8px;
-    width: 100%; /* Increased width */
-    max-width: 1200px; /* Max width adjusted */
+    width: 100%;
+    max-width: 1200px;
     margin: 40px auto;
-    
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
-    height: 10%;
+    background: #222;
 }
 
 /* Accordion item styles */
@@ -20,7 +17,7 @@
 /* Accordion header styles */
 .accordion-header {
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 20px; /* Increased padding */
+    padding: 20px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -36,7 +33,7 @@
 .accordion-button {
     background: black;
     border: none;
-    font-size: 20px; /* Increased font size */
+    font-size: 20px;
     text-align: left;
     color: #ffffff;
     width: 100%;
@@ -44,59 +41,84 @@
 
 /* Panel styles */
 .accordion-panel {
-    padding: 20px; /* Increased padding */
+    padding: 20px;
     background-color: #000000;
     color: #e0e0e0;
 }
 
-/* Styles for navigation arrows */
-.arrow {
-    cursor: pointer;
-    font-size: 30px; /* Increased font size */
-    color: #4CAF50; /* Green color */
-    margin: 0 15px; /* Increased margin */
-    transition: color 0.3s ease;
+/* Styling bullet points */
+.accordion-panel ul {
+    padding-left: 20px;
+    list-style-type: disc;
 }
 
-/* Hover effect for arrows */
-.arrow:hover {
-    color: #45a049;
+.accordion-panel li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #e0e0e0;
 }
 
-/* Animation for content appearance */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Styling headers inside accordion panels */
+.accordion-panel h1,
+.accordion-panel h2,
+.accordion-panel h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
 }
 
-/* Centering the main content */
-.main-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Full viewport height */
-    padding: 20px;
+.accordion-panel h1 {
+    font-size: 24px;
 }
+
+.accordion-panel h2 {
+    font-size: 20px;
+}
+
+.accordion-panel h3 {
+    font-size: 18px;
+}
+
+/* Pagination styles */
 .pagination {
     display: flex;
     justify-content: center;
     list-style: none;
     padding: 25px;
-  }
-  
-  .pagination li {
+}
+
+.pagination li {
     margin: 0 5px;
     cursor: pointer;
-  }
-  
-  .pagination .active {
+}
+
+.pagination .pagination__link {
+    padding: 10px 15px;
+    border: 1px solid #05cafc;
+    border-radius: 5px;
+    color: #05cafc;
+    text-decoration: none;
+}
+
+.pagination .pagination__link:hover {
+    background-color: #05cafc;
+    color: white;
+}
+
+.pagination .pagination__link--active {
     font-weight: bold;
-    color: rgb(0, 225, 255);
-  }
-  
+    /* background-color: #05cafc; */
+    color: white;
+}
+
+.pagination .pagination__link--disabled {
+    color: #555;
+    cursor: not-allowed;
+}
+
+/* Centering the main content */
+.coursecontent {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}

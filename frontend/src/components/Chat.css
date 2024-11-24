@@ -6,7 +6,7 @@
   width: 80%;
   margin: 0 auto;
   z-index: 1;
-  margin-bottom: -11%;
+  margin-bottom: -5%;
 }
 
 .chat-messages {
@@ -288,4 +288,7 @@ button span {
 
 .accept-button {
   margin-right: 10px;
+}
+.courseaccept{
+  color: white;
 }
