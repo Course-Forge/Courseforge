@@ -169,7 +169,7 @@ def chatbot_response(request):
     if request.method == 'POST':
         try:
             # Configure the generative AI client
-            genai.configure(api_key=settings.GEMINI_API_KEY)
+            genai.configure(api_key=settings.gemini_api_key)
             model = genai.GenerativeModel('gemini-1.5-flash')
             
             # Parse JSON request body
@@ -180,7 +180,7 @@ def chatbot_response(request):
             coursedur_prompt = f"ONLY output the number of days this course: {user_message} will take to complete. Only output the integer value. Example: 5"
             coursedur_gen = model.generate_content(coursedur_prompt).text
             course_duration = int(coursedur_gen)
-            
+            66
             summary_prompt = f"Generate a quick and small summary of this course: {user_message}. Provide the following details: \
                  1. A general summary of the course. Mention what the course will cover generally. (should be quite short in about 4-5 organized sentences. Should be short and no more than this.)\
                  2. Then say the course duration based on {coursedur_gen}. Make sure that the 'Course Duration' is bolded. Example: Course Duration: {coursedur_gen}"

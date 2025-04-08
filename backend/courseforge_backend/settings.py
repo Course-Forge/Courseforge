@@ -18,7 +18,7 @@ import os
 #Retrieve the API key from the environemnt variables
 # GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
-GEMINI_API_KEY = os.environ['gemini_api_key']
+gemini_api_key = os.environ['gemini_api_key']
 # GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 YOUTUBE_API_KEY = os.environ.get("youtube_api_key")
@@ -35,7 +35,7 @@ SECRET_KEY = 'django-insecure-3m*2h^cs&@ehdb695(afqyfb9%3=lk%w*4-@bwo9wh#=*t2up+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['KOYEB_PUBLIC_DOMAIN'] #Allow all hosts for development purposes. In production, you should specify your domain names here.
+ALLOWED_HOSTS = ['*'] #Allow all hosts for development purposes. In production, you should specify your domain names here.
 
 
 # Application definition

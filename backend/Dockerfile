@@ -1,0 +1,33 @@
+# Use official Python image
+FROM python:3.11  
+
+# Set the working directory
+WORKDIR /backend
+# Copy and install dependencies
+COPY requirements.txt .  
+RUN pip install -r requirements.txt 
+
+
+ARG gemini_api_key
+ARG PORT
+ARG SECRET_KEY
+# ARG DATABASE_URL
+# ARG PGDATABASE
+# ARG PGHOST
+# ARG PGPASSWORD
+# ARG PGPORT
+# ARG PGUSER
+
+ENV PORT ${PORT}
+ENV PYTHONUNBUFFERED=1
+
+
+# Copy the Django project
+ADD . .  
+
+# Set environment variables (can be overridden in Railway)
+# ENV FIREBASE_CONFIG="your-firebase-config"  
+
+EXPOSE 8000
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
