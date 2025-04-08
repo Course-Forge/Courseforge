@@ -5,7 +5,7 @@ FROM python:3.11
 # WORKDIR /backend
 WORKDIR /
 # Copy and install dependencies
-COPY requirements.txt .  
+COPY ./backend/requirements.txt .
 RUN pip install -r requirements.txt 
 
 
