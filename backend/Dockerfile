@@ -2,7 +2,8 @@
 FROM python:3.11  
 
 # Set the working directory
-WORKDIR /backend
+# WORKDIR /backend
+WORKDIR /
 # Copy and install dependencies
 COPY requirements.txt .  
 RUN pip install -r requirements.txt 
@@ -23,11 +24,11 @@ ENV PYTHONUNBUFFERED=1
 
 
 # Copy the Django project
-ADD . .  
+COPY . .  
 
 # Set environment variables (can be overridden in Railway)
 # ENV FIREBASE_CONFIG="your-firebase-config"  
 
 EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "backend/manage.py", "runserver", "0.0.0.0:8000"]
