@@ -9,7 +9,7 @@ COPY ./backend/requirements.txt .
 RUN pip install -r requirements.txt 
 
 
-ARG gemini_api_key
+ARG GEMINI_API_KEY
 ARG PORT
 ARG SECRET_KEY
 # ARG DATABASE_URL

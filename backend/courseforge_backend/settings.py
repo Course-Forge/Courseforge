@@ -18,7 +18,7 @@ import os
 #Retrieve the API key from the environemnt variables
 # GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
-gemini_api_key = os.environ['gemini_api_key']
+GEMINI_API_KEY = os.environ['GEMINI_API_KEY']
 # GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 YOUTUBE_API_KEY = os.environ.get("youtube_api_key")
