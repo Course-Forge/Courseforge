@@ -5,16 +5,17 @@ Django>=4.2,<5.0
 # charset-normalizer==3.2.0
 dj-database-url==1.2.0
 # Django==4.3.1
-django-cors-headers==3.15.0
+django-cors-headers==4.7.0
 django-on-heroku==1.2.0
-django-restframework==0.1.5
-djangorestframework==3.16.0
+# django-restframework==0.1.5
+djangorestframework
 # et-xmlfile==1.2.0
 # ffmpeg-python==0.3.1
 # filelock==3.12.0
 # future==0.19.0
 # glob2==0.8.0
-huggingface-hub==0.18.0
+gunicorn
+huggingface-hub
 # idna==3.6
 # more-itertools==10.1.0
 # numpy==1.26.2
@@ -26,21 +27,21 @@ huggingface-hub==0.18.0
 # psycopg2-binary==3.1.0
 # pydotenv==0.1.2
 # pyparsing==3.1.1
-python-dateutil==2.9.0
-python-dotenv==1.0.0
-pytz==2025.1
-PyYAML==6.1.0
+python-dateutil
+python-dotenv
+pytz
+PyYAML
 # regex==2025.3.1
-requests==2.31.0
+requests
 # semantic-version==2.11.0
 # setuptools-rust==1.8.0
 # six==1.17.0
 # sqlparse==0.5.0
-tokenizers==0.15.0
+tokenizers
 # torch==2.2.0
 # tqdm==4.66.0
-transformers==4.30.0
-types-pytz==2025.1.0
-typing_extensions==4.9.0
-urllib3==2.2.0
-whitenoise==6.5.0
+transformers
+types-pytz
+typing_extensions
+urllib3
+whitenoise
