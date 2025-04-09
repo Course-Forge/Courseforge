@@ -501,9 +501,8 @@ const Chat = () => {
 
       try {
         const response = await axios.post(
-          // "https://disgusted-turtle-courseforge-b37f42e5.koyeb.app/api/chatbot/",
-
-          "http://127.0.0.1:8000/api/chatbot/",
+          "https://disgusted-turtle-courseforge-b37f42e5.koyeb.app/api/chatbot/",
+          //http://127.0.0.1:8000/api/chatbot/,
           { user_message: userInput }
         );
 
