@@ -131,6 +131,7 @@ USE_TZ = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://courseforge-main.vercel.app",
+    "https://courseforge-main-git-sahils-frontendupdate-scodingvs-projects.vercel.app"
 ]
 
 
