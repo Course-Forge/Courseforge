@@ -3,7 +3,7 @@ FROM python:3.11
 
 # Set the working directory
 # WORKDIR /backend
-WORKDIR /app
+WORKDIR /
 # Copy and install dependencies
 COPY ./backend/requirements.txt .
 RUN pip install --upgrade pip
