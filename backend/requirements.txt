@@ -17,6 +17,8 @@ python-decouple
 # future==0.19.0
 # glob2==0.8.0
 gunicorn
+google
+google-generativeai
 huggingface-hub
 # idna==3.6
 # more-itertools==10.1.0
